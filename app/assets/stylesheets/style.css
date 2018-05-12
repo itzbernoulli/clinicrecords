@@ -1,0 +1,102 @@
+#wrapper{
+	margin-top: 50px;
+}
+#below-header{
+	min-height: 400px;
+	padding-top: 20px;
+}
+
+.headline{
+	padding-top: 50px;
+}
+
+#headline-image{
+	padding-top: 0px;
+}
+
+#category{
+	background-color: #F9F9F9; 
+	padding-top: 40px;
+}
+
+.greybackground{
+	background-color: #F9F9F9;
+}
+
+#rightward{
+	margin-left: 50px;
+}
+
+.updown-margin{
+	margin-top: 5px;
+	margin-bottom:5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.topbottom-margin{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.body-padding{
+	padding: 20px;
+}
+
+.top-margin{
+	margin-top: 50px;
+}
+
+.review{
+	margin-bottom: 50px;
+}
+
+.intertext-margin{
+	margin-left: 5px;
+}
+
+
+.button-margin{
+	margin-left: 10px;
+}
+
+.tint {
+  position: relative;
+  
+  margin-right: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+}
+
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0, 0.2);
+  transition: all .3s linear;
+}
+
+.tint:hover:before { background: none; }
+
+.clickable:hover{
+	background: #eaedf1;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+/* visited link */
+/*a:visited {
+    color: green;
+}*/
+
+/* selected link */
+/*a:active {
+    color: yellow;
+}*/

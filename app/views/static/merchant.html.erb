@@ -1,0 +1,131 @@
+<div class="row greybackground headline">
+	<!-- This is the general row with an offset of one from the edge -->
+	<div class="col-md-10 offset-md-1">
+
+		<!-- This is the headline row -->
+		<div class="row">
+			 <div class="col-md-6">
+				<div class="row">
+					<div class="col-md-2">
+						<%= image_tag @merchant.feature_image, :alt => 'merchant_image', :style=>"height: 50px; width: 50px; display: block;" %>
+					</div>
+					<div class="col-md-10">
+						<h4><%= @merchant.instagram %></h4>
+						<p class="lead"><%= @merchant.short_description %></p>
+						<%= submit_tag @merchant.category.name, :class=>"btn btn-outline-primary btn-sm" %>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 text-right">
+				<h4>RESERVED SPACE</h4>
+				
+			</div>
+			
+		</div>
+
+		<!-- This is the image showcase row -->
+		<div class="row">
+			<div class="col-md-8 updown-margin">
+				<div class="col-md-12 card border-secondary">
+				  <div id="below-header">Feature Image</div>
+				  </div>
+
+
+				  <div class="col-md-12 card border-secondary topbottom-margin body-padding">
+				  	<div class="row">
+				  		<div class="col-md-6">
+				  			<%= submit_tag "Tweet", :class=>"btn btn-outline-primary" %>
+				  			<%= submit_tag "Share", :class=>"btn btn-outline-info" %>
+
+				  		</div>
+				  		<div class="col-md-6 text-right">
+				  			<p class="btn btn-outline-primary btn-sm">FEATURED 3 DAYS AGO</p>
+				  		</div>
+				  	</div>
+				  	
+				  	<hr/>
+				  	<div><%= @merchant.long_description %></div>
+				  </div>
+
+				  <h6 id="review">Reviews</h6>
+				  <div class="col-md-12 card border-secondary body-padding review">
+
+
+				  <% if user_signed_in? %>
+				  	<div class="form-group">
+				      <label for="exampleTextarea">Post Review</label>
+				      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+				    </div>
+				    <button type="submit" class="btn btn-primary">Submit</button>
+
+				  <% else %>
+				  	<div class="form-group">
+					  <fieldset disabled="">
+					    <label class="control-label" for="disabledInput">Post your review</label>
+					    <input class="form-control" id="disabledInput" type="text" placeholder="You need to be logged-in to submit your review." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+					  </fieldset>
+					</div>
+				  <% end %>
+				  	<% @merchant.reviews.each do |review| %>
+				  		<h6 class="card-title"><%= review.user.fullname %></h4>
+					    <p class="card-text"><%= review.content %></p>
+					    <% end %>
+				  </div>
+			</div>
+
+			<!-- This is the rightist row for other essentials -->
+
+			<div class="col-md-3" id="rightward">
+			<hr/>				
+				<div class="row updown-margin">
+				<hr/>
+					<div class="col-md-12 text-center">
+						<button class="btn btn-outline-primary" type="submit">RATE VENDOR</button>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12  card border-secondary updown-margin">
+						<h6>Facebook</h6>
+						<p class="lead">@merchant</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12  card border-secondary updown-margin">
+						<h6>Twitter</h6>
+						<p class="lead">@merchant</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12  card border-secondary updown-margin">
+						<h6>Website</h6>
+						<p class="lead">www.merchant.com</p>
+					</div>
+				</div>
+				<div class="topbottom-margin">
+					<h5>Related Vendors</h5>
+					<% @related_merchants.each do |rel| %>
+						<hr/>
+						<%= link_to merchant_static_path(rel) do %>
+							<div class="row updown-margin clickable">
+								<div class="col-md-3">
+									<%= image_tag rel.feature_image, :alt => 'merchant_image', :style=>"height: 50px; width: 50px; display: block;" %>
+								</div>
+								<div class="col-md-9">
+									<h5><%= rel.instagram %></h5>
+									<p><%= rel.short_description %></p>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="col-md-1">
+	</div>
+</div>

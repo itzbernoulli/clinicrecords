@@ -7,16 +7,20 @@ class User < ApplicationRecord
   has_many :user_roles
   has_many :roles, through: :user_roles
 
-  def is_admin?
-  	is_type?("Admin")
+  def fullname
+    self.first_name + " " + self.last_name
   end
 
-  def is_editor?
-  	is_type?("Editor")  	
+  def is_admin?
+  	is_type?("admin")
+  end
+
+  def is_hitter?
+  	is_type?("hitter")  	
   end
 
   def is_anonymous
-  	is_type?("Anonymous")
+  	is_type?("anonymous")
   end
 
   private
