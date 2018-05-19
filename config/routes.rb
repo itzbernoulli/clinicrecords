@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :searches
   resources :ratings
   resources :reviews
   resources :merchants
   resources :categories
   resources :roles
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   root to: 'static#index'
 
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
   	member do
   		get :merchants, :merchant
   	end
+
+    collection do
+      post :review
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

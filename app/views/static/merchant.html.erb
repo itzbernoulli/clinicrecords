@@ -5,6 +5,15 @@
 		<!-- This is the headline row -->
 		<div class="row">
 			 <div class="col-md-6">
+			 	<% if @review.errors.any? %>
+						    <div class="alert alert-dismissible alert-danger">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <strong><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</strong> <br/>
+							  <% @review.errors.full_messages.each do |message| %>
+						        <li><%= message %></li>
+						      <% end %>
+							</div>
+						  <% end %>
 				<div class="row">
 					<div class="col-md-2">
 						<%= image_tag @merchant.feature_image, :alt => 'merchant_image', :style=>"height: 50px; width: 50px; display: block;" %>
@@ -18,7 +27,7 @@
 			</div>
 			<div class="col-md-6 text-right">
 				<h4>RESERVED SPACE</h4>
-				
+			
 			</div>
 			
 		</div>
@@ -34,8 +43,14 @@
 				  <div class="col-md-12 card border-secondary topbottom-margin body-padding">
 				  	<div class="row">
 				  		<div class="col-md-6">
-				  			<%= submit_tag "Tweet", :class=>"btn btn-outline-primary" %>
-				  			<%= submit_tag "Share", :class=>"btn btn-outline-info" %>
+				  			<%= link_to review_static_index_path, :class=>"btn btn-outline-info" do %>
+								  			<i class="fa fa-twitter"></i><span class="icon-space">TWEET</span>
+								  	<% end %>
+			
+				  			<%= link_to review_static_index_path, :class=>"btn btn-outline-primary" do %>
+								  			<i class="fa fa-facebook"></i><span class="icon-space">SHARE</span>
+								  	<% end %>
+				  			
 
 				  		</div>
 				  		<div class="col-md-6 text-right">
@@ -52,11 +67,39 @@
 
 
 				  <% if user_signed_in? %>
+
+				  	<%= form_tag review_static_index_path, remote: true do %>
+				  		<% if alert %>
+		    				<p> ALERT</p>
+		    				<div class="alert alert-dismissible alert-warning">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <h4 class="alert-heading">Ooops!</h4>
+							  <p class="mb-0">All reviews for <%= @merchant.instagram %> should be at least 10 characters long.</p>
+							</div>
+				  		<% elsif notice %>
+				  			<div class="alert alert-dismissible alert-success">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <h4 class="alert-heading">Hurray!</h4>
+							  <p class="mb-0">You successfully posted a review for <%= @merchant.instagram %></p>
+							</div>
+				  		<% else %>
+				  			
+				  		<% end %>
 				  	<div class="form-group">
-				      <label for="exampleTextarea">Post Review</label>
-				      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+				  		<%= hidden_field_tag "id", @merchant.id %>
+				  		<div class="row">
+				  			<div class="col-md-12">
+					  			<%= text_area_tag "content", params["content"], :placeholder => "Post a review for this merchant" , :class=>"form-control updown-margin" %>
+					  		</div>
+				  		</div>
+
+				  		<div class="row">
+				  			<div class="col-md-3">
+				     			<%= submit_tag "Submit Review" , :class=>"form-control btn btn-primary" %>
+				     		</div>
+				     	</div>
 				    </div>
-				    <button type="submit" class="btn btn-primary">Submit</button>
+				    <% end %>
 
 				  <% else %>
 				  	<div class="form-group">

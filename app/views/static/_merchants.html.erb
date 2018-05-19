@@ -2,9 +2,11 @@
 <% if @selected.nil? %>
 	<div class="row">
 	<div class="col-md-12">
-	    <div class="jumbotron">
-	      <p class="lead">Home</p>
-	      <p>Home Text</p>
+	    <div class="category-image img-responsive center-block tint text-white" style="background-image: url('http://www.doccloud.nu/wp-content/uploads/2016/03/serverroom-700x150.jpg'); background-size: cover;"">
+	    	<div class="category-description">
+		      <h2>Home</h2>
+		      <p class="lead">Home Text</p>
+		    </div>
 	    </div>
 	 </div>
  </div>
@@ -14,7 +16,7 @@
 		
 		<ul class="list-group">
 			<% @seventyplus.each do |merchant| %>
-
+			
 				<%= link_to merchant_static_path(merchant)  do %>
 				  <li class="list-group-item clickable">
 					  	<div class="row">
@@ -28,11 +30,11 @@
 							  		<div class="col-md-12 offset-md-9">
 
 							  		<%= link_to merchant_static_path(merchant), :class=>"btn btn-outline-primary btn-sm" do %>
-								  			<i class="fa fa-caret-up"><%= Rating.total_rating(merchant) %></i>
+								  			<i class="fa fa-caret-up"></i><span class="icon-space"><%= Rating.total_rating(merchant).to_i %></span>
 								  	<% end %>
 
-								  		<%= link_to merchant_static_path(merchant), :class=>"btn btn-outline-primary btn-sm" do %>
-								  			<i class="fa fa-comment"><%= merchant.reviews.count %></i>
+								  		<%= link_to merchant_static_path(merchant)  + "#review", :class=>"btn btn-outline-primary btn-sm" do %>
+								  			<i class="fa fa-comment"></i><span class="icon-space"><%= merchant.reviews.count.to_i %></span>
 								  		<% end %>	
 							  		</div>
 							  	</div>
@@ -47,9 +49,12 @@
 <div class="row">
 	<div class="col-md-12">
 		
-	    <div class="jumbotron img-responsive center-block tint text-white" style="background-image: url('http://www.doccloud.nu/wp-content/uploads/2016/03/serverroom-700x150.jpg'); background-size: cover;">
-	      <p class="lead"><%= @selected.name %></p>
-	      <p><%= @selected.description %></p>
+	    <!-- <div class="jumbotron img-responsive center-block tint text-white" style="background-image: url('http://www.doccloud.nu/wp-content/uploads/2016/03/serverroom-700x150.jpg'); background-size: cover;"> -->
+	    <div class="category-image img-responsive center-block tint text-white" style="background-image: url('http://www.doccloud.nu/wp-content/uploads/2016/03/serverroom-700x150.jpg'); background-size: cover;"">
+	    	<div class="category-description">
+	      <p><%= @selected.name %></p>
+	      <p class="lead"><%= @selected.description %></p>
+	      </div>
 	    </div>
 	 </div>
  </div>
