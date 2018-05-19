@@ -34,18 +34,18 @@
           <% if user_signed_in? %>
             <ul class="nav nav-pills">
               <li class="nav-item my-2">
-                <%= link_to @review_path, data: { toggle: "tooltip"}, title: 'Suggest a merchant.' do %>
-                        <i class="fa fa-plus"></i><span class="icon-space"></span>
+                <%= link_to @review_path, :class=>"nav-icons-margin", data: { toggle: "tooltip"}, title: 'Suggest a merchant.' do %>
+                        <i class="fa fa-plus big"></i>
                     <% end %>
               </li>
               <li class="nav-item my-2">
-                <%= link_to @review_path do %>
-                        <i class="fa fa-bell"></i><span class="icon-space"></span>
+                <%= link_to @review_path, :class=>"nav-icons-margin" do %>
+                        <i class="fa fa-bell big"></i>
                     <% end %>
               </li>
               <li class="nav-item dropdown">
                 
-                <%= image_tag "https://thumbs.dreamstime.com/b/female-african-student-29039669.jpg" , :class=>"img-circular nav-link dropdown-toggle" ,data: { toggle: "dropdown"} %>
+                <%= image_tag "https://thumbs.dreamstime.com/b/female-african-student-29039669.jpg" , :class=>"img-circular dropdown-toggle" ,data: { toggle: "dropdown"} %>
 
                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
                   <a class="dropdown-item" href="#">MY PROFILE</a>

@@ -56,6 +56,9 @@
 	margin-left: 5px;
 }
 
+.nav-icons-margin{
+	margin-right: 15px;
+}
 
 .button-margin{
 	margin-left: 10px;
@@ -123,6 +126,10 @@ a:hover{
 	color: #DCDCDC;
 }*/
 
+.fa.big {
+  font-size: 20px;
+}
+
 #navBarSearchForm input[type=text]{width:320px !important;}
 
 .category-image{
@@ -141,6 +148,7 @@ a:hover{
  width: 40px;
  height: 40px;
  background-size: cover;
+ overflow: hidden;
  display: block;
  border-radius: 100px;
  -webkit-border-radius: 100px;
