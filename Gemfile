@@ -56,3 +56,5 @@ gem 'devise'
 gem "cancan"
 gem "font-awesome-rails"
 gem 'omniauth-facebook'
+# Use Omniauth Twitter plugin
+gem 'omniauth-twitter'
