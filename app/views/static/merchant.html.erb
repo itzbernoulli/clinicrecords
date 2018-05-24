@@ -5,15 +5,7 @@
 		<!-- This is the headline row -->
 		<div class="row">
 			 <div class="col-md-6">
-			 	<% if @review.errors.any? %>
-						    <div class="alert alert-dismissible alert-danger">
-							  <button type="button" class="close" data-dismiss="alert">&times;</button>
-							  <strong><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</strong> <br/>
-							  <% @review.errors.full_messages.each do |message| %>
-						        <li><%= message %></li>
-						      <% end %>
-							</div>
-						  <% end %>
+			 
 				<div class="row">
 					<div class="col-md-2">
 						<%= image_tag @merchant.feature_image, :alt => 'merchant_image', :style=>"height: 50px; width: 50px; display: block;" %>

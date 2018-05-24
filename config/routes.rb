@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     collection do
       post :review
+      get  :profile
     end
   end
 
