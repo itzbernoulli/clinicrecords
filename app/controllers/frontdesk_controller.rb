@@ -1,4 +1,4 @@
-class RecordsController < ApplicationController
+class FrontdeskController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
 
   # GET /records
@@ -25,10 +25,6 @@ class RecordsController < ApplicationController
   # POST /records.json
   def create
     @record = Record.new(record_params)
-
-    @record.nurse_update_time = DateTime.now
-    @record.doctor_update_time = DateTime.now
-    @record.pharmacist_update_time = DateTime.now
 
     respond_to do |format|
       if @record.save

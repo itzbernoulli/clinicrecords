@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   resources :records
-  resources :searches
-  resources :ratings
-  resources :reviews
-  resources :merchants
-  resources :categories
-  resources :roles
+  resources :frontdesk
   devise_for :users
   
   root to: 'static#index'
