@@ -10,63 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180519125740) do
+ActiveRecord::Schema.define(version: 20180419202723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.string   "image"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "merchants", force: :cascade do |t|
-    t.string   "instagram"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.string   "website"
-    t.string   "feature_image"
-    t.string   "short_description"
-    t.string   "long_description"
-    t.integer  "category_id"
-    t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["category_id"], name: "index_merchants_on_category_id", using: :btree
-    t.index ["user_id"], name: "index_merchants_on_user_id", using: :btree
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.float    "score"
-    t.integer  "merchant_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["merchant_id"], name: "index_ratings_on_merchant_id", using: :btree
-    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "merchant_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["merchant_id"], name: "index_reviews_on_merchant_id", using: :btree
-    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
-  end
-
   create_table "roles", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "searches", force: :cascade do |t|
-    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,20 +46,10 @@ ActiveRecord::Schema.define(version: 20180519125740) do
     t.string   "phone_number"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.text     "image"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "merchants", "categories"
-  add_foreign_key "merchants", "users"
-  add_foreign_key "ratings", "merchants"
-  add_foreign_key "ratings", "users"
-  add_foreign_key "reviews", "merchants"
-  add_foreign_key "reviews", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end
