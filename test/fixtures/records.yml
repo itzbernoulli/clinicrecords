@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  years: MyString
+  months: MyString
+  gender: MyString
+  address: MyString
+  health_care_provider: MyString
+  department: MyString
+  complaints: MyString
+  diagnosis: MyString
+  treatment: MyString
+  height: MyString
+  weight: MyString
+  temperature: MyString
+  blood_pressure: MyString
+  drugs_given: MyString
+  front_desk_updated: false
+  nurse_updated: false
+  doctor_updated: false
+  pharmarcist_updated: false
+  front_desk_name: MyString
+  nurse_name: MyString
+  doctor_name: MyString
+  pharmacist_name: MyString
+  nurse_update_time: MyString
+  doctor_update_time: MyString
+  pharmacist_update_time: MyString
+
+two:
+  name: MyString
+  years: MyString
+  months: MyString
+  gender: MyString
+  address: MyString
+  health_care_provider: MyString
+  department: MyString
+  complaints: MyString
+  diagnosis: MyString
+  treatment: MyString
+  height: MyString
+  weight: MyString
+  temperature: MyString
+  blood_pressure: MyString
+  drugs_given: MyString
+  front_desk_updated: false
+  nurse_updated: false
+  doctor_updated: false
+  pharmarcist_updated: false
+  front_desk_name: MyString
+  nurse_name: MyString
+  doctor_name: MyString
+  pharmacist_name: MyString
+  nurse_update_time: MyString
+  doctor_update_time: MyString
+  pharmacist_update_time: MyString

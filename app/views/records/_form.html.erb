@@ -1,0 +1,143 @@
+<!-- Start contact-page Area -->
+      <section class="contact-page-area section-gap">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= form_for(record) do |f| %>
+                <% if record.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+                    <ul>
+                    <% record.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :name %> -->
+                  <%= f.text_field :name, class: "common-input mb-20 form-control", placeholder: "Fullname" %>
+                </div>
+
+                <div class="col-lg-6 form-group" id='datetimepicker1'>
+                  <!-- <%= f.label :years %> -->
+                  <%= f.text_field :years, :'data-provide'=>'datepicker' , class: "common-input mb-20 form-control", placeholder: "Years" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :months %> -->
+                  <%= f.text_field :months , class: "common-input mb-20 form-control", placeholder: "Months" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :gender %> -->
+                  <%= f.text_field :gender , class: "common-input mb-20 form-control", placeholder: "Gender" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :address %> -->
+                  <%= f.text_field :address, class: "common-input mb-20 form-control", placeholder: "Address"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :health_care_provider %> -->
+                  <%= f.text_field :health_care_provider , class: "common-input mb-20 form-control", placeholder: "Health care provider" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :department %> -->
+                  <%= f.text_field :department, class: "common-input mb-20 form-control", placeholder: "Department"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :complaints %> -->
+                  <%= f.text_field :complaints , class: "common-input mb-20 form-control", placeholder: "Complaints" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :diagnosis %> -->
+                  <%= f.text_field :diagnosis, class: "common-input mb-20 form-control", placeholder: "Diagnosis"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :treatment %> -->
+                  <%= f.text_field :treatment, class: "common-input mb-20 form-control", placeholder: "Fullname"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :height %> -->
+                  <%= f.text_field :height, class: "common-input mb-20 form-control", placeholder: "Height"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :weight %> -->
+                  <%= f.text_field :weight, class: "common-input mb-20 form-control", placeholder: "Weight"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :temperature %> -->
+                  <%= f.text_field :temperature, class: "common-input mb-20 form-control", placeholder: "Temperature"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :blood_pressure %> -->
+                  <%= f.text_field :blood_pressure, class: "common-input mb-20 form-control", placeholder: "Blood Pressure"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :drugs_given %> -->
+                  <%= f.text_field :drugs_given , class: "common-input mb-20 form-control", placeholder: "Drugs given" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                 <%= f.label :front_desk_updated %>
+                  <%= f.check_box :front_desk_updated, class: "common-input mb-20 form-control" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <%= f.label :nurse_updated %>
+                  <%= f.check_box :nurse_updated , class: "common-input mb-20 form-control"%>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <%= f.label :doctor_updated %>
+                  <%= f.check_box :doctor_updated, class: "common-input mb-20 form-control" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <%= f.label :pharmarcist_updated %>
+                  <%= f.check_box :pharmarcist_updated, class: "common-input mb-20 form-control"  %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit %>
+                </div>
+              <% end %>
+                <div class="row"> 
+                  <div class="col-lg-6 form-group">
+                    <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+                  
+                    <input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+
+                    <input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control" required="" type="text">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <textarea class="common-textarea form-control" name="message" placeholder="Enter Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Messege'" required=""></textarea>       
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="alert-msg" style="text-align: left;"></div>
+                    <button class="genric-btn primary" style="float: right;">Send Message</button>                      
+                  </div>
+                </div>
+              </form> 
+            </div>
+          </div>
+        </div>  
+      </section>
+      <!-- End contact-page Area -->
+
+        <script type="text/javascript">          
+            $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
+        </script>

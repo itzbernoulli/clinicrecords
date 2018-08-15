@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419202723) do
+ActiveRecord::Schema.define(version: 20180815140920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "records", force: :cascade do |t|
+    t.string   "name"
+    t.string   "years"
+    t.string   "months"
+    t.string   "gender"
+    t.string   "address"
+    t.string   "health_care_provider"
+    t.string   "department"
+    t.string   "complaints"
+    t.string   "diagnosis"
+    t.string   "treatment"
+    t.string   "height"
+    t.string   "weight"
+    t.string   "temperature"
+    t.string   "blood_pressure"
+    t.string   "drugs_given"
+    t.boolean  "front_desk_updated"
+    t.boolean  "nurse_updated"
+    t.boolean  "doctor_updated"
+    t.boolean  "pharmarcist_updated"
+    t.string   "front_desk_name"
+    t.string   "nurse_name"
+    t.string   "doctor_name"
+    t.string   "pharmacist_name"
+    t.string   "nurse_update_time"
+    t.string   "doctor_update_time"
+    t.string   "pharmacist_update_time"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180419202723) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
+    t.string   "title"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

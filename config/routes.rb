@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :records
   resources :searches
   resources :ratings
   resources :reviews
