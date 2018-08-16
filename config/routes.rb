@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :frontdesk
   devise_for :users
   
-  root to: 'static#index'
+  root to: 'home#index'
 
-  resources :static, only: [:index] do
+  resources :home, only: [:index] do
   	member do
   		get :merchants, :merchant
   	end

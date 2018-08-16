@@ -1,5 +1,4 @@
 class FrontdeskController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_record, only: [:show, :edit, :update, :destroy]
 
   # GET /records
