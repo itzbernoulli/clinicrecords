@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815140920) do
+ActiveRecord::Schema.define(version: 20180826162415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "records", force: :cascade do |t|
     t.string   "name"
-    t.string   "years"
-    t.string   "months"
+    t.date     "dob"
     t.string   "gender"
     t.string   "address"
     t.string   "health_care_provider"
@@ -39,9 +38,9 @@ ActiveRecord::Schema.define(version: 20180815140920) do
     t.string   "nurse_name"
     t.string   "doctor_name"
     t.string   "pharmacist_name"
-    t.string   "nurse_update_time"
-    t.string   "doctor_update_time"
-    t.string   "pharmacist_update_time"
+    t.datetime "nurse_update_time"
+    t.datetime "doctor_update_time"
+    t.datetime "pharmacist_update_time"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -78,6 +77,8 @@ ActiveRecord::Schema.define(version: 20180815140920) do
     t.string   "title"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "admin_name"
+    t.datetime "admin_update_time"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

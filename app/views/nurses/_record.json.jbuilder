@@ -1,0 +1,2 @@
+json.extract! record, :id, :name, :years, :months, :gender, :address, :health_care_provider, :department, :complaints, :diagnosis, :treatment, :height, :weight, :temperature, :blood_pressure, :drugs_given, :front_desk_updated, :nurse_updated, :doctor_updated, :pharmarcist_updated, :front_desk_name, :nurse_name, :doctor_name, :pharmacist_name, :nurse_update_time, :doctor_update_time, :pharmacist_update_time, :created_at, :updated_at
+json.url record_url(record, format: :json)

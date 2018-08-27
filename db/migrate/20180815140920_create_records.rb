@@ -2,8 +2,7 @@ class CreateRecords < ActiveRecord::Migration[5.0]
   def change
     create_table :records do |t|
       t.string :name
-      t.string :years
-      t.string :months
+      t.date   :dob
       t.string :gender
       t.string :address
       t.string :health_care_provider
@@ -24,9 +23,9 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.string :nurse_name
       t.string :doctor_name
       t.string :pharmacist_name
-      t.string :nurse_update_time
-      t.string :doctor_update_time
-      t.string :pharmacist_update_time
+      t.datetime :nurse_update_time
+      t.datetime :doctor_update_time
+      t.datetime :pharmacist_update_time
 
       t.timestamps
     end

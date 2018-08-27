@@ -12,16 +12,28 @@ class User < ApplicationRecord
     self.first_name + " " + self.last_name
   end
 
+  def is_superadmin?
+  	is_type?("superadmin")
+  end
+
   def is_admin?
-  	is_type?("admin")
+  	is_type?("admin")  	
   end
 
-  def is_hitter?
-  	is_type?("hitter")  	
-  end
+  def is_frontdesk?
+    is_type?("frontdesk")
+  end  
 
-  def is_anonymous
-  	is_type?("anonymous")
+  def is_nurse?
+    is_type?("nurse")
+  end  
+
+  def is_doctor?
+    is_type?("doctor")
+  end  
+
+  def is_pharmacist?
+  	is_type?("pharmacist")
   end
 
   # def self.new_with_session(params, session)

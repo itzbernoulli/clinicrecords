@@ -21,9 +21,9 @@
                   <%= f.text_field :name, class: "common-input mb-20 form-control", placeholder: "Fullname" %>
                 </div>
 
-                <div class="col-lg-6 form-group" id='datetimepicker1'>
+                <div class="col-lg-6 form-group">
                   <!-- <%= f.label :years %> -->
-                  <%= f.text_field :years, :'data-provide'=>'datepicker' , class: "common-input mb-20 form-control", placeholder: "mm/dd/yyyy" %>
+                  <%= f.date_field :dob, class: "common-input mb-20 form-control", placeholder: "mm/dd/yyyy"%>
                 </div>
 
                 <div class="col-lg-6 form-group inline">
@@ -65,7 +65,3 @@
         </div>  
       </section>
       <!-- End contact-page Area -->
-
-        <script type="text/javascript">          
-            $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
-        </script>

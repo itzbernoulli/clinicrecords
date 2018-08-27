@@ -7,12 +7,7 @@
 
 <p>
   <strong>Years:</strong>
-  <%= @record.years %>
-</p>
-
-<p>
-  <strong>Months:</strong>
-  <%= @record.months %>
+  <%= @record.dob %>
 </p>
 
 <p>
@@ -36,99 +31,10 @@
 </p>
 
 <p>
-  <strong>Complaints:</strong>
-  <%= @record.complaints %>
-</p>
-
-<p>
-  <strong>Diagnosis:</strong>
-  <%= @record.diagnosis %>
-</p>
-
-<p>
-  <strong>Treatment:</strong>
-  <%= @record.treatment %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @record.height %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @record.weight %>
-</p>
-
-<p>
-  <strong>Temperature:</strong>
-  <%= @record.temperature %>
-</p>
-
-<p>
-  <strong>Blood pressure:</strong>
-  <%= @record.blood_pressure %>
-</p>
-
-<p>
-  <strong>Drugs given:</strong>
-  <%= @record.drugs_given %>
-</p>
-
-<p>
-  <strong>Front desk updated:</strong>
-  <%= @record.front_desk_updated %>
-</p>
-
-<p>
-  <strong>Nurse updated:</strong>
-  <%= @record.nurse_updated %>
-</p>
-
-<p>
-  <strong>Doctor updated:</strong>
-  <%= @record.doctor_updated %>
-</p>
-
-<p>
-  <strong>Pharmarcist updated:</strong>
-  <%= @record.pharmarcist_updated %>
-</p>
-
-<p>
   <strong>Front desk name:</strong>
   <%= @record.front_desk_name %>
 </p>
 
-<p>
-  <strong>Nurse name:</strong>
-  <%= @record.nurse_name %>
-</p>
-
-<p>
-  <strong>Doctor name:</strong>
-  <%= @record.doctor_name %>
-</p>
-
-<p>
-  <strong>Pharmacist name:</strong>
-  <%= @record.pharmacist_name %>
-</p>
-
-<p>
-  <strong>Nurse update time:</strong>
-  <%= @record.nurse_update_time %>
-</p>
-
-<p>
-  <strong>Doctor update time:</strong>
-  <%= @record.doctor_update_time %>
-</p>
-
-<p>
-  <strong>Pharmacist update time:</strong>
-  <%= @record.pharmacist_update_time %>
-</p>
 
 <%= link_to 'Edit', edit_record_path(@record) %> |
 <%= link_to 'Back', records_path %>

@@ -5,7 +5,7 @@
           <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
               <h1 class="text-white">
-                Contact Us        
+                Front Desk        
               </h1> 
               <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="fa fa-arrow-right"></span>  <a href="contact.html"> Records</a></p>
             </div>  
@@ -16,40 +16,70 @@
       <p id="notice"><%= notice %></p>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Years</th>
-      <th>Months</th>
-      <th>Gender</th>
-      <th>Address</th>
-      <th>Health care provider</th>
-      <th>Department</th>
-      <th>Front desk name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% count = 0 %>
 
-  <tbody>
-    <% @records.each do |record| %>
-      <tr>
-        <td><%= record.name %></td>
-        <td><%= record.years %></td>
-        <td><%= record.months %></td>
-        <td><%= record.gender %></td>
-        <td><%= record.address %></td>
-        <td><%= record.health_care_provider %></td>
-        <td><%= record.department %></td>
-        <td><%= record.front_desk_name %></td>
-        <td><%= link_to 'Show', record %></td>
-        <td><%= link_to 'Edit', edit_record_path(record) %></td>
-        <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @records.count > 0 %>
+  <% count+=1 %>
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+            <table>
+              <thead>
+                <tr>
+                  <th>S/No</th>
+                  <th>Name</th>
+                  <th>D.O.B</th>
+                  <th>Gender</th>
+                  <th>Address</th>
+                  <th>Health care provider</th>
+                  <th>Department</th>
+                  <th>Front desk Personel</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @records.each do |record| %>
+                  <tr>
+                    <td><%= count %></td>
+                    <td><%= record.name %></td>
+                    <td><%= record.dob %></td>
+                    <td><%= record.gender %></td>
+                    <td><%= record.address %></td>
+                    <td><%= record.health_care_provider %></td>
+                    <td><%= record.department %></td>
+                    <td><%= record.front_desk_name %></td>
+                    <td><%= link_to 'Show', record %></td>
+                    <td><%= link_to 'Edit', edit_record_path(record) %></td>
+                    <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+        <%= link_to 'New Record', new_record_path %>
+      </div>
+    </div>
+  </div>
 
 <br>
+<% else %>
+   <!-- Start facilities Area -->
+      <section class="facilities-area section-gap">
+        <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-70 col-lg-7">
+                        <div class="title text-center">
+                            <h1 class="mb-10">No Records.</h1>
+                            <p>No patient record has been inputted for today. Click on <%= link_to 'New Record', new_frontdesk_path %> to start.</p>
+                        </div>
+                    </div>
+                </div>
+        </div>  
+      </section>
+      <!-- End facilities Area -->
+<% end %>
 
-<%= link_to 'New Record', new_frontdesk_path %>
+
+

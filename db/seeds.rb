@@ -49,5 +49,6 @@ role_len.times do |n|
 		role_id: db_roles[n].id)
 
 	puts userrole.role.name + " user " + userrole.user.email + " created"
+
 end
 

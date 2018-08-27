@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :records
-  resources :frontdesk
   devise_for :users
   
   root to: 'home#index'

@@ -16,6 +16,37 @@
                   </div>
                 <% end %>
 
+            <div class="col-lg-4 d-flex flex-column address-wrap">
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-home"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Binghamton, New York</h5>
+                  <p>
+                    4343 Hinkle Deegan Lake Road
+                  </p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-phone-handset"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>00 (958) 9865 562</h5>
+                  <p>Mon to Fri 9am to 6 pm</p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>support@colorlib.com</h5>
+                  <p>Send us your query anytime!</p>
+                </div>
+              </div>                            
+            </div>
                 <div class="col-lg-6 form-group">
                   <!-- <%= f.label :name %> -->
                   <%= f.text_field :name, class: "common-input mb-20 form-control", placeholder: "Fullname" %>
@@ -57,21 +88,6 @@
                 </div>
 
                 <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :complaints %> -->
-                  <%= f.text_area :complaints , class: "common-input mb-20 form-control", placeholder: "Complaints" %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :diagnosis %> -->
-                  <%= f.text_area :diagnosis, class: "common-input mb-20 form-control", placeholder: "Diagnosis"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :treatment %> -->
-                  <%= f.text_area :treatment, class: "common-input mb-20 form-control", placeholder: "Treatment"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
                   <!-- <%= f.label :height %> -->
                   <%= f.text_field :height, class: "common-input mb-20 form-control", placeholder: "Height"  %>
                 </div>
@@ -89,31 +105,6 @@
                 <div class="col-lg-6 form-group">
                   <!-- <%= f.label :blood_pressure %> -->
                   <%= f.text_field :blood_pressure, class: "common-input mb-20 form-control", placeholder: "Blood Pressure"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :drugs_given %> -->
-                  <%= f.text_field :drugs_given , class: "common-input mb-20 form-control", placeholder: "Drugs given" %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                 <%= f.label :front_desk_updated %>
-                  <%= f.check_box :front_desk_updated, class: "common-input mb-20 form-control" %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <%= f.label :nurse_updated %>
-                  <%= f.check_box :nurse_updated , class: "common-input mb-20 form-control"%>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <%= f.label :doctor_updated %>
-                  <%= f.check_box :doctor_updated, class: "common-input mb-20 form-control" %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <%= f.label :pharmarcist_updated %>
-                  <%= f.check_box :pharmarcist_updated, class: "common-input mb-20 form-control"  %>
                 </div>
 
                 <div class="actions">
