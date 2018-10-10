@@ -19,7 +19,6 @@
 <% count = 0 %>
 
 <% if @records.count > 0 %>
-  <% count+=1 %>
   <div class="limiter">
     <div class="container-table100">
       <div class="wrap-table100">
@@ -41,6 +40,7 @@
 
               <tbody>
                 <% @records.each do |record| %>
+                  <% count += 1 %>
                   <tr>
                     <td><%= count %></td>
                     <td><%= record.name %></td>
@@ -51,7 +51,7 @@
                     <td><%= record.department %></td>
                     <td><%= record.front_desk_name %></td>
                     <td><%= link_to 'Show', record %></td>
-                    <td><%= link_to 'Edit', edit_record_path(record) %></td>
+                    <td><%= link_to 'Edit', edit_frontdesk_path(record) %></td>
                     <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>
                 <% end %>
@@ -72,7 +72,7 @@
                     <div class="menu-content pb-70 col-lg-7">
                         <div class="title text-center">
                             <h1 class="mb-10">No Records.</h1>
-                            <p>No patient record has been inputted for today. Click on <%= link_to 'New Record', new_frontdesk_path %> to start.</p>
+                            <p>No patient record has been inputted for today. Click on <%= link_to 'New Record', new_record_path %> to start.</p>
                         </div>
                     </div>
                 </div>

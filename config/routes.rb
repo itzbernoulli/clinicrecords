@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+
   resources :records
   devise_for :users
   
   root to: 'home#index'
-
+  resources :frontdesk
   resources :home, only: [:index] do
   	member do
   		get :merchants, :merchant

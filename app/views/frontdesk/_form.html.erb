@@ -3,7 +3,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <%= form_for(record) do |f| %>
+              <%= form_for(@record) do |f| %>
                 <% if record.errors.any? %>
                   <div id="error_explanation">
                     <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>

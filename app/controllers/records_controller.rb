@@ -8,7 +8,7 @@ class RecordsController < ApplicationController
   #change query parameters for the where clause based on who has updated
     @records = Record.all
     if current_user.is_frontdesk?
-      render "frontdesk/index"
+      render "/frontdesk/index"
     elsif current_user.is_nurse?
       render "nurses/index"
     elsif current_user.is_doctor?
@@ -61,7 +61,7 @@ class RecordsController < ApplicationController
     respond_to do |format|
       if @record.save
             if current_user.is_frontdesk?
-              format.html { redirect_to "frontdesk/index", notice: 'Record was successfully created.' }
+              format.html { redirect_to frontdesk_index_path, notice: 'Record was successfully created.' }
             elsif current_user.is_nurse?
               format.html { redirect_to "nurses/index", notice: 'Record was successfully created.' }
             elsif current_user.is_doctor?
@@ -87,7 +87,7 @@ class RecordsController < ApplicationController
     respond_to do |format|
       if @record.update(record_params)
         if current_user.is_frontdesk?
-              format.html { redirect_to "frontdesk/index", notice: 'Patient record was successfully created.' }
+              format.html { redirect_to frontdesk_index_path, notice: 'Patient record was successfully created.' }
             elsif current_user.is_nurse?
               format.html { redirect_to "nurses/index", notice: 'Patient record was successfully updated.' }
             elsif current_user.is_doctor?
