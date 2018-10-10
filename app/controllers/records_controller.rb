@@ -23,14 +23,16 @@ class RecordsController < ApplicationController
   # GET /records/1
   # GET /records/1.json
   def show
-    #     if current_user.is_frontdesk?
-          
-    # elsif current_user.is_nurse?
-    # elsif current_user.is_doctor?
-    # elsif current_user.is_pharmacist?
-    # else
-
-    # end
+    if current_user.is_frontdesk?
+      redirect_to frontdesk_path(@record)
+    elsif current_user.is_nurse?
+      render "/nurses/new"
+    elsif current_user.is_doctor?
+      render "/doctors/new"
+    elsif current_user.is_pharmacist?
+      render "/pharmacists/new"
+    elsif current_user.is_admin?
+    end
   end
 
   # GET /records/new

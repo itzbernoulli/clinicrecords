@@ -17,7 +17,7 @@
 <% count = 0 %>
 
 <% if @records.count > 0 %>
-  <% count+=1 %>
+  
   <div class="limiter">
     <div class="container-table100">
       <div class="wrap-table100">
@@ -52,6 +52,7 @@
 
             <tbody>
               <% @records.each do |record| %>
+              <% count+=1 %>
                 <tr>
                   <td><%= record.name %></td>
                   <td><%= record.dob %></td>
