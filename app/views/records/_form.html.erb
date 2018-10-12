@@ -31,11 +31,11 @@
                   <div class="row">
                     <div class="col-lg-2 visible-lg-inline">
                       <%= f.label :gender, "Male", :value => "Male"  %>
-                      <%= f.radio_button :gender, true %>
+                      <%= f.radio_button :gender,'Male' %>
                     </div>
                     <div class="col-lg-2">
                       <%= f.label :gender, "Female", :value => "Female" %>
-                    <%= f.radio_button :gender, false, :checked => true %>
+                    <%= f.radio_button :gender, 'Female', :checked => true %>
                     </div>
                   </div>                                   
                     
@@ -126,6 +126,6 @@
       </section>
       <!-- End contact-page Area -->
 
-        <script type="text/javascript">          
+<!--         <script type="text/javascript">          
             $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
-        </script>
+        </script> -->

@@ -10,7 +10,7 @@ class RecordsController < ApplicationController
     if current_user.is_frontdesk?
       render "/frontdesk/index"
     elsif current_user.is_nurse?
-      render "nurses/index"
+      render "/nurses/index"
     elsif current_user.is_doctor?
       render "doctors/index"
     elsif current_user.is_pharmacist?
