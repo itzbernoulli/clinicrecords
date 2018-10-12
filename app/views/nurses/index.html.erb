@@ -17,7 +17,6 @@
 <% count = 0 %>
 
 <% if @records.count > 0 %>
-  
   <div class="limiter">
     <div class="container-table100">
       <div class="wrap-table100">
@@ -34,7 +33,7 @@
                 <th>Weight</th>
                 <th>Temperature</th>
                 <th>Blood pressure</th>
-                <th>Nurse name</th>
+                <th>Nurses' name</th>
                 <th colspan="3"></th>
               </tr>
             </thead>
@@ -53,7 +52,7 @@
                   <td><%= record.temperature %></td>
                   <td><%= record.blood_pressure %></td>
                   <td><%= record.nurse_name %></td>
-                  <td><%= link_to 'Update Patient Record', edit_record_path(record) %></td>
+                  <td><%= link_to 'Update Patient Record', edit_nurse_path(record) %></td>
                 </tr>
               <% end %>
             </tbody>

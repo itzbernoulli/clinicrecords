@@ -126,7 +126,7 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:name, :dob, :gender, :address, :health_care_provider, :department, :complaints, :diagnosis, :treatment, :height, :weight, :temperature, :blood_pressure, :drugs_given, :front_desk_updated, :nurse_updated, :doctor_updated, :pharmarcist_updated, :front_desk_name, :nurse_name, :doctor_name, :pharmacist_name, :nurse_update_time, :doctor_update_time, :pharmacist_update_time)
+      params.require(:record).permit(:name, :dob, :gender, :address, :health_care_provider, :department_id, :complaints, :diagnosis, :treatment, :height, :weight, :temperature, :blood_pressure, :drugs_given, :front_desk_updated, :nurse_updated, :doctor_updated, :pharmarcist_updated, :front_desk_name, :nurse_name, :doctor_name, :pharmacist_name, :nurse_update_time, :doctor_update_time, :pharmacist_update_time)
     end
 
     def set_user_and_time

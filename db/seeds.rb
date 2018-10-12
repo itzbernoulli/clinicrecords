@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Record.delete_all
-Role.delete_all
+Department.delete_all
+UserRole.delete_all
 User.delete_all
+Role.delete_all
 
 
 image = "https://cdn.shopify.com/s/files/1/1089/8530/products/Brain-Bag-Olive-Cordura-Steel-Parapack_1024x1024.jpg?v=1521490363"
@@ -50,5 +52,12 @@ role_len.times do |n|
 
 	puts userrole.role.name + " user " + userrole.user.email + " created"
 
+end
+
+departments = ["Rock Kids Zone (RKZ)","Ushering", "Protocol", "Medical", "Member", "Rock Foundation Force (RFF)"]
+
+departments.length.times do |d|
+	Department.create(
+		name: departments[d])
 end
 
