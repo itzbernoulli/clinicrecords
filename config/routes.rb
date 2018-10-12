@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :departments
   resources :records
   resources :nurses
+  resources :doctors
+  resources :pharmacists
   devise_for :users
   
   root to: 'home#index'
