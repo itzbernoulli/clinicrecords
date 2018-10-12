@@ -16,106 +16,135 @@
                   </div>
                 <% end %>
 
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :name %> -->
-                  <%= f.text_field :name, class: "common-input mb-20 form-control", placeholder: "Fullname" %>
+            <div class="col-lg-4 d-flex flex-column address-wrap">
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-home"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :years %> -->
-                  <%= f.date_field :dob, class: "common-input mb-20 form-control", placeholder: "mm/dd/yyyy"%>
+                <div class="contact-details">
+                  <h5>Name</h5>
+                  <p>
+                    <%=record.name %>
+                  </p>
                 </div>
-
-                <div class="col-lg-6 form-group inline">
-                  <!-- <%= f.label :gender %> -->  
-                  <div class="row">
-                    <div class="col-lg-2 visible-lg-inline">
-                      <%= f.label :gender, "Male", :value => "Male"  %>
-                      <%= f.radio_button :gender, true %>
-                    </div>
-                    <div class="col-lg-2">
-                      <%= f.label :gender, "Female", :value => "Female" %>
-                    <%= f.radio_button :gender, false, :checked => true %>
-                    </div>
-                  </div>                                   
-                    
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-phone-handset"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :address %> -->
-                  <%= f.text_field :address, class: "common-input mb-20 form-control", placeholder: "Address"  %>
+                <div class="contact-details">
+                  <h5>Date Of Birth</h5>
+                  <p><%=record.dob %></p>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :health_care_provider %> -->
-                  <%= f.text_field :health_care_provider , class: "common-input mb-20 form-control", placeholder: "Health care provider" %>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :department %> -->
-                  <%= f.text_field :department, class: "common-input mb-20 form-control", placeholder: "Department"  %>
+                <div class="contact-details">
+                  <h5>Gender</h5>
+                  <p><%=record.gender %></p>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :complaints %> -->
-                  <%= f.text_area :complaints , class: "common-input mb-20 form-control", placeholder: "Complaints" %>
+              </div>   
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :diagnosis %> -->
-                  <%= f.text_area :diagnosis, class: "common-input mb-20 form-control", placeholder: "Diagnosis"  %>
+                <div class="contact-details">
+                  <h5>Address</h5>
+                  <p><%=record.address %></p>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :treatment %> -->
-                  <%= f.text_area :treatment, class: "common-input mb-20 form-control", placeholder: "Treatment"  %>
+              </div>  
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :height %> -->
-                  <%= f.text_field :height, class: "common-input mb-20 form-control", placeholder: "Height"  %>
+                <div class="contact-details">
+                  <h5>Health Care Provider</h5>
+                  <p><%=record.health_care_provider %></p>
                 </div>
+              </div> 
 
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :weight %> -->
-                  <%= f.text_field :weight, class: "common-input mb-20 form-control", placeholder: "Weight"  %>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :temperature %> -->
-                  <%= f.text_field :temperature, class: "common-input mb-20 form-control", placeholder: "Temperature"  %>
+                <div class="contact-details">
+                  <h5>Department</h5>
+                  <p><%= record.department.name %></p>
                 </div>
+              </div> 
 
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :blood_pressure %> -->
-                  <%= f.text_field :blood_pressure, class: "common-input mb-20 form-control", placeholder: "Blood Pressure"  %>
+            <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :drugs_given %> -->
-                  <%= f.text_field :drugs_given , class: "common-input mb-20 form-control", placeholder: "Drugs given" %>
+                <div class="contact-details">
+                  <h5>Weight</h5>
+                  <p><%= @record.weight %></p>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                 <%= f.label :front_desk_updated %>
-                  <%= f.check_box :front_desk_updated, class: "common-input mb-20 form-control" %>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <%= f.label :nurse_updated %>
-                  <%= f.check_box :nurse_updated , class: "common-input mb-20 form-control"%>
+                <div class="contact-details">
+                  <h5>Height</h5>
+                  <p><%= @record.height %></p>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <%= f.label :doctor_updated %>
-                  <%= f.check_box :doctor_updated, class: "common-input mb-20 form-control" %>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
                 </div>
-
-                <div class="col-lg-6 form-group">
-                  <%= f.label :pharmarcist_updated %>
-                  <%= f.check_box :pharmarcist_updated, class: "common-input mb-20 form-control"  %>
+                <div class="contact-details">
+                  <h5>Temperature</h5>
+                  <p><%= @record.temperature %></p>
                 </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Blood Presure</h5>
+                  <p><%= @record.blood_pressure %></p>
+                </div>
+              </div>   
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Complaint</h5>
+                  <p><%= @record.complaint %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Diagnosis</h5>
+                  <p><%= @record.diagnosis %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Treatment</h5>
+                  <p><%= @record.treatment %></p>
+                </div>
+              </div>    
+            </div>              
 
+            <div class="col-lg-6 form-group">
+              <!-- <%= f.label :drugs_given %> -->
+              <%= f.text_field :drugs_given , class: "common-input mb-20 form-control", placeholder: "Drugs given" %>
+            </div>
+                
                 <div class="actions">
                   <%= f.submit "SUBMIT", :class=>"genric-btn primary" %>
                 </div>
@@ -125,7 +154,3 @@
         </div>  
       </section>
       <!-- End contact-page Area -->
-
-        <script type="text/javascript">          
-            $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
-        </script>
