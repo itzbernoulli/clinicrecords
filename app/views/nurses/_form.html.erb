@@ -22,9 +22,9 @@
                   <span class="lnr lnr-home"></span>
                 </div>
                 <div class="contact-details">
-                  <h5>Full name</h5>
+                  <h5>Name</h5>
                   <p>
-                    <%= record.name %>
+                    <%=record.name %>
                   </p>
                 </div>
               </div>
@@ -33,8 +33,8 @@
                   <span class="lnr lnr-phone-handset"></span>
                 </div>
                 <div class="contact-details">
-                  <h5>Age</h5>
-                  <p><%= record.dob %></p>
+                  <h5>Date Of Birth</h5>
+                  <p><%=record.dob %></p>
                 </div>
               </div>
               <div class="single-contact-address d-flex flex-row">
@@ -43,39 +43,37 @@
                 </div>
                 <div class="contact-details">
                   <h5>Gender</h5>
-                  <p><%= record.gender %></p>
+                  <p><%=record.gender %></p>
                 </div>
-              </div>
+              </div>   
               <div class="single-contact-address d-flex flex-row">
                 <div class="icon">
-                  <span class="lnr lnr-phone-handset"></span>
+                  <span class="lnr lnr-envelope"></span>
                 </div>
                 <div class="contact-details">
                   <h5>Address</h5>
-                  <p><%= record.address %></p>
+                  <p><%=record.address %></p>
                 </div>
-              </div>
+              </div>  
               <div class="single-contact-address d-flex flex-row">
                 <div class="icon">
-                  <span class="lnr lnr-phone-handset"></span>
+                  <span class="lnr lnr-envelope"></span>
                 </div>
                 <div class="contact-details">
-                  <h5>Health Center</h5>
-                  <p><%= record.address %></p>
+                  <h5>Health Care Provider</h5>
+                  <p><%=record.health_care_provider %></p>
                 </div>
-              </div>
+              </div> 
               <div class="single-contact-address d-flex flex-row">
                 <div class="icon">
                   <span class="lnr lnr-envelope"></span>
                 </div>
                 <div class="contact-details">
                   <h5>Department</h5>
-                  <p><%= record.department %></p>
+                  <p><%= record.department.name %></p>
                 </div>
-              </div>                            
-            </div>
-            </div>
-            <div class="col-lg-6">
+              </div>                       
+            </div>              
 
                 <div class="col-lg-6 form-group">
                   <!-- <%= f.label :height %> -->

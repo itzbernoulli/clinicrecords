@@ -12,9 +12,9 @@ class RecordsController < ApplicationController
     elsif current_user.is_nurse?
       render "/nurses/index"
     elsif current_user.is_doctor?
-      render "doctors/index"
+      render "/doctors/index"
     elsif current_user.is_pharmacist?
-      render "pharmacists/index"
+      render "/pharmacists/index"
     else
       @records = Record.all
     end
@@ -26,11 +26,11 @@ class RecordsController < ApplicationController
     if current_user.is_frontdesk?
       redirect_to frontdesk_path(@record)
     elsif current_user.is_nurse?
-      render "/nurses/new"
+      render nurses_path(@record)
     elsif current_user.is_doctor?
-      render "/doctors/new"
+      render doctor_path(@record)
     elsif current_user.is_pharmacist?
-      render "/pharmacists/new"
+      render paharmacist_path(@record)
     elsif current_user.is_admin?
     end
   end
@@ -63,13 +63,13 @@ class RecordsController < ApplicationController
     respond_to do |format|
       if @record.save
             if current_user.is_frontdesk?
-              format.html { redirect_to frontdesk_index_path, notice: 'Record was successfully created.' }
+              format.html { redirect_to frontdesk_path(@record), notice: 'Record was successfully created.' }
             elsif current_user.is_nurse?
-              format.html { redirect_to "nurses/index", notice: 'Record was successfully created.' }
+              format.html { redirect_to nurse_path(@record), notice: 'Record was successfully created.' }
             elsif current_user.is_doctor?
-              format.html { redirect_to "doctors/index", notice: 'Record was successfully created.' }
+              format.html { redirect_to doctor_path(@record), notice: 'Record was successfully created.' }
             elsif current_user.is_pharmacist?
-              format.html { redirect_to "pharmacists/index", notice: 'Record was successfully created.' }
+              format.html { redirect_to pharmacst_path(@record), notice: 'Record was successfully created.' }
             else
               format.html { redirect_to @record, notice: 'Record was successfully created.' }
             end
@@ -91,11 +91,11 @@ class RecordsController < ApplicationController
         if current_user.is_frontdesk?
               format.html { redirect_to frontdesk_index_path, notice: 'Patient record was successfully created.' }
             elsif current_user.is_nurse?
-              format.html { redirect_to "nurses/index", notice: 'Patient record was successfully updated.' }
+              format.html { redirect_to nurse_path(@record), notice: 'Patient record was successfully updated.' }
             elsif current_user.is_doctor?
-              format.html { redirect_to "doctors/index", notice: 'Patient record was successfully updated.' }
+              format.html { redirect_to doctor_path(@record), notice: 'Patient record was successfully updated.' }
             elsif current_user.is_pharmacist?
-              format.html { redirect_to "pharmacists/index", notice: 'Patient record was successfully updated.' }
+              format.html { redirect_to pharmacist_path(@record), notice: 'Patient record was successfully updated.' }
             else
               format.html { redirect_to @record, notice: 'Patient record was successfully updated.' }
             end
@@ -126,7 +126,7 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:name, :dob, :gender, :address, :health_care_provider, :department, :complaints, :diagnosis, :treatment, :height, :weight, :temperature, :blood_pressure, :drugs_given, :front_desk_updated, :nurse_updated, :doctor_updated, :pharmarcist_updated, :front_desk_name, :nurse_name, :doctor_name, :pharmacist_name, :nurse_update_time, :doctor_update_time, :pharmacist_update_time)
+      params.require(:record).permit(:name, :dob, :gender, :address, :health_care_provider, :department_id, :complaints, :diagnosis, :treatment, :height, :weight, :temperature, :blood_pressure, :drugs_given, :front_desk_updated, :nurse_updated, :doctor_updated, :pharmarcist_updated, :front_desk_name, :nurse_name, :doctor_name, :pharmacist_name, :nurse_update_time, :doctor_update_time, :pharmacist_update_time)
     end
 
     def set_user_and_time

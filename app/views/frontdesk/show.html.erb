@@ -1,40 +1,72 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @record.name %>
-</p>
+      <!-- Start contact-page Area -->
+      <section class="contact-page-area section-gap">
+        <div class="container">
+          <div class="row">   
+          <p id="notice"><%= notice %></p>       
+            <div class="col-lg-4 d-flex flex-column address-wrap">
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-home"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Name</h5>
+                  <p>
+                    <%= @record.name %>
+                  </p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-phone-handset"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Date Of Birth</h5>
+                  <p><%= @record.dob %></p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Address</h5>
+                  <p><%= @record.address %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Health Care Provider</h5>
+                  <p><%= @record.health_care_provider %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Address</h5>
+                  <p><%= @record.department.name %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Front Desk Personnel</h5>
+                  <p><%= @record.front_desk_name %></p>
+                </div>
+              </div>  
+              <%= link_to 'Edit', edit_frontdesk_path(@record) %> | <%= link_to 'Back', frontdesk_index_path %>
+            </div>
+            <div class="col-lg-8"> 
+            </div>
+          </div>
+        </div>  
+      </section>
+      <!-- End contact-page Area -->
 
-<p>
-  <strong>Years:</strong>
-  <%= @record.dob %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @record.gender %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @record.address %>
-</p>
-
-<p>
-  <strong>Health care provider:</strong>
-  <%= @record.health_care_provider %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @record.department %>
-</p>
-
-<p>
-  <strong>Front desk name:</strong>
-  <%= @record.front_desk_name %>
-</p>
-
-
-<%= link_to 'Edit', edit_frontdesk_path(@record) %> |
-<%= link_to 'Back', frontdesk_index_path %>

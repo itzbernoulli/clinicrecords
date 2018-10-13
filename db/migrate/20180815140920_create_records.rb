@@ -6,7 +6,6 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.string :gender
       t.string :address
       t.string :health_care_provider
-      t.string :department
       t.string :complaints
       t.string :diagnosis
       t.string :treatment
