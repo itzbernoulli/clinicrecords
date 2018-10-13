@@ -4,7 +4,7 @@ class FrontdeskController < ApplicationController
 
 
   def index
-  	@records = Record.all
+  	@records = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
   end
 
   def new

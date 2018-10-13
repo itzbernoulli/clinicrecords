@@ -13,13 +13,13 @@
         </div>
       </section>
       <!-- End banner Area -->  
-      <p id="notice"><%= notice %></p>
 <% count = 0 %>
 
 <% if @records.count > 0 %>
   <div class="limiter">
     <div class="container-table100">
       <div class="wrap-table100">
+              <p id="notice"><%= notice %></p>
         <div class="table100">
           <table>
             <thead>
@@ -58,6 +58,7 @@
                   <td><%= record.diagnosis %></td>
                   <td><%= record.treatment %></td>               
                   <td><%= record.doctor_name %></td>
+                  <td><%= link_to 'Show', record %></td>
                   <td><%= link_to 'Update Patient Record', edit_doctor_path(record) %></td>
                 </tr>
               <% end %>
@@ -77,6 +78,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="menu-content pb-70 col-lg-7">
                         <div class="title text-center">
+                                <p id="notice"><%= notice %></p>
                             <h1 class="mb-10">No Records.</h1>
                             <p>No patient record has been inputted for today. Patients added at the frontdesk will be visible on page refresh</p>
                         </div>

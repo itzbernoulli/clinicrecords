@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-
+  root to: 'home#index'
   resources :departments
   resources :records
   resources :nurses
   resources :doctors
   resources :pharmacists
   devise_for :users
-  
-  root to: 'home#index'
   resources :frontdesk
   resources :home, only: [:index] do
   	member do

@@ -14,10 +14,9 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.string :temperature
       t.string :blood_pressure
       t.string :drugs_given
-      t.boolean :front_desk_updated
-      t.boolean :nurse_updated
-      t.boolean :doctor_updated
-      t.boolean :pharmarcist_updated
+      t.boolean :nurse_updated,         :default => false
+      t.boolean :doctor_updated,        :default => false
+      t.boolean :pharmacist_updated,    :default => false
       t.string :front_desk_name
       t.string :nurse_name
       t.string :doctor_name

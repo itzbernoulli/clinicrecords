@@ -2,21 +2,7 @@
       <section class="contact-page-area section-gap">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6">
-              <%= form_for(record) do |f| %>
-                <% if record.errors.any? %>
-                  <div id="error_explanation">
-                    <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
-
-                    <ul>
-                    <% record.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                    <% end %>
-                    </ul>
-                  </div>
-                <% end %>
-
-            <div class="col-lg-12 d-flex flex-column address-wrap">
+            <div class="col-lg-4 d-flex flex-column address-wrap">
               <div class="single-contact-address d-flex flex-row">
                 <div class="icon">
                   <span class="lnr lnr-home"></span>
@@ -72,39 +58,36 @@
                   <h5>Department</h5>
                   <p><%= record.department.name %></p>
                 </div>
-              </div>                       
-            </div>              
+              </div>                                                  
+            </div>
+            <div class="col-lg-8">
+              <%= form_for(record, :html => {:class => "form-area contact-form text-right"}) do |f| %>
+                <% if record.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
 
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :height %> -->
+                    <ul>
+                    <% record.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %> 
+                <div class="row"> 
+                  <div class="col-lg-6 form-group">          
                   <%= f.text_field :height, class: "common-input mb-20 form-control", placeholder: "Height"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :weight %> -->
                   <%= f.text_field :weight, class: "common-input mb-20 form-control", placeholder: "Weight"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :temperature %> -->
                   <%= f.text_field :temperature, class: "common-input mb-20 form-control", placeholder: "Temperature"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :blood_pressure %> -->
                   <%= f.text_field :blood_pressure, class: "common-input mb-20 form-control", placeholder: "Blood Pressure"  %>
-                </div>
-
-                <div class="actions">
-                  <%= f.submit "SUBMIT", :class=>"genric-btn primary" %>
-                </div>
+                  <div class="col-lg-12">
+                         <%= f.submit "Update Record", :class=>"genric-btn primary" %>                
+                  </div>
               <% end %>
+                  </div>
+                </div>
             </div>
           </div>
         </div>  
       </section>
       <!-- End contact-page Area -->
 
-        <script type="text/javascript">          
-            $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
-        </script>

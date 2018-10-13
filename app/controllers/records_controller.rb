@@ -6,14 +6,17 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
   #change query parameters for the where clause based on who has updated
-    @records = Record.all
     if current_user.is_frontdesk?
+      @records = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
       render "/frontdesk/index"
     elsif current_user.is_nurse?
+      @records = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
       render "/nurses/index"
     elsif current_user.is_doctor?
+      @records = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(nurse_updated: true)
       render "/doctors/index"
     elsif current_user.is_pharmacist?
+      @records = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(doctor_updated: true)
       render "/pharmacists/index"
     else
       @records = Record.all
@@ -26,11 +29,11 @@ class RecordsController < ApplicationController
     if current_user.is_frontdesk?
       redirect_to frontdesk_path(@record)
     elsif current_user.is_nurse?
-      render nurses_path(@record)
+      redirect_to nurse_path(@record)
     elsif current_user.is_doctor?
-      render doctor_path(@record)
+      redirect_to doctor_path(@record)
     elsif current_user.is_pharmacist?
-      render paharmacist_path(@record)
+      redirect_to pharmacist_path(@record)
     elsif current_user.is_admin?
     end
   end
@@ -135,12 +138,15 @@ class RecordsController < ApplicationController
           elsif current_user.is_nurse?
             @record.nurse_update_time = DateTime.now
             @record.nurse_name = current_user.fullname
+            @record.nurse_updated = true
           elsif current_user.is_doctor?
             @record.doctor_name = current_user.fullname
             @record.doctor_update_time = DateTime.now
+            @record.doctor_updated = true
           elsif current_user.is_pharmacist?
             @record.pharmacist_name = current_user.fullname
             @record.pharmacist_update_time = DateTime.now
+            @record.pharmacist_updated = true
           else
             @record.admin_name = current_user.fullname
             @record.admin_update_time = DateTime.now

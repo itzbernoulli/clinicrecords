@@ -7,20 +7,20 @@
               <h1 class="text-white">
                 Pharmacist        
               </h1> 
-              <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Records</a></p>
+              <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  Records</p>
             </div>  
           </div>
         </div>
       </section>
       <!-- End banner Area -->  
-      <p id="notice"><%= notice %></p>
+
 <% count = 0 %>
 
 <% if @records.count > 0 %>
-  <% count+=1 %>
   <div class="limiter">
     <div class="container-table100">
       <div class="wrap-table100">
+        <p id="notice"><%= notice %></p>
         <div class="table100">
           <table>
             <thead>
@@ -45,12 +45,13 @@
 
             <tbody>
               <% @records.each do |record| %>
+                <% count+=1 %>
                 <tr>
                   <td><%= count %></td>
                   <td><%= record.name %></td>
                   <td><%= record.dob %></td>
                   <td><%= record.gender %></td>
-                  <td><%= record.department %></td>
+                  <td><%= record.department.name %></td>
                   <td><%= record.complaints %></td>
                   <td><%= record.diagnosis %></td>
                   <td><%= record.treatment %></td>
@@ -59,15 +60,15 @@
                   <td><%= record.temperature %></td>
                   <td><%= record.blood_pressure %></td>
                   <td><%= record.drugs_given %></td>
-                  <td><%= record.pharmacist_name %></td>               
-                  <td><%= link_to 'Update Patient Record', edit_record_path(record) %></td>                  
+                  <td><%= record.pharmacist_name %></td>  
+                  <td><%= link_to 'Show', record %></td>             
+                  <td><%= link_to 'Update Patient Record', edit_pharmacist_path(record) %></td>                  
                 </tr>
               <% end %>
             </tbody>
           </table>
 
           </div>
-        <%= link_to 'New Record', new_record_path %>
       </div>
     </div>
   </div>
@@ -80,8 +81,9 @@
                 <div class="row d-flex justify-content-center">
                     <div class="menu-content pb-70 col-lg-7">
                         <div class="title text-center">
+                          <p id="notice"><%= notice %></p>
                             <h1 class="mb-10">No Records.</h1>
-                            <p>No patient record has been inputted for today. Click on <%= link_to 'New Record', new_record_path %> to start.</p>
+                            <p>No patient record has been inputted for today. Click <%= link_to 'Refresh', record_path %> to start.</p>
                         </div>
                     </div>
                 </div>

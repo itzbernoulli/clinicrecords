@@ -1,129 +1,151 @@
-<p id="notice"><%= notice %></p>
+     <!-- Start contact-page Area -->
+      <section class="contact-page-area section-gap">
+        <div class="container">
+          <div class="row"> 
+              <div class="col-lg-12">
+                 <p id="notice"><%= notice %></p>
+              </div>         
+            <div class="col-lg-4 d-flex flex-column address-wrap">
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-home"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Name</h5>
+                  <p>
+                    <%= @record.name %>
+                  </p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-phone-handset"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Date Of Birth</h5>
+                  <p><%= @record.dob %></p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Address</h5>
+                  <p><%= @record.address %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Health Care Provider</h5>
+                  <p><%= @record.health_care_provider %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Address</h5>
+                  <p><%= @record.department.name %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Front Desk Personnel</h5>
+                  <p><%= @record.front_desk_name %></p>
+                </div>
+              </div>  
+            </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @record.name %>
-</p>
+            <div class="col-lg-4 d-flex flex-column address-wrap"> 
+            <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Weight</h5>
+                  <p><%= @record.weight %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Height</h5>
+                  <p><%= @record.height %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Temperature</h5>
+                  <p><%= @record.temperature %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Blood Presure</h5>
+                  <p><%= @record.blood_pressure %></p>
+                </div>
+              </div>
+            </div>
 
-<p>
-  <strong>Years:</strong>
-  <%= @record.dob %>
-</p>
+          <div class="col-lg-4 d-flex flex-column address-wrap"> 
+            <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Complaint</h5>
+                  <p><%= @record.complaints %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Diagnosis</h5>
+                  <p><%= @record.diagnosis %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Treatment</h5>
+                  <p><%= @record.treatment %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Drugs Given</h5>
+                  <p><%= @record.drugs_given %></p>
+                </div>
+              </div> 
+            </div>
+            <div class="col-lg-12 text-center">
+              <%= link_to 'Edit', edit_pharmacist_path(@record), :class => "genric-btn info" %>  <%= link_to 'All Patients', pharmacists_path ,:class => "genric-btn info-border"%>                     
+            </div>
+          </div>
+        </div>  
+      </section>
+      <!-- End contact-page Area -->
 
-<p>
-  <strong>Gender:</strong>
-  <%= @record.gender %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @record.address %>
-</p>
-
-<p>
-  <strong>Health care provider:</strong>
-  <%= @record.health_care_provider %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @record.department %>
-</p>
-
-<p>
-  <strong>Complaints:</strong>
-  <%= @record.complaints %>
-</p>
-
-<p>
-  <strong>Diagnosis:</strong>
-  <%= @record.diagnosis %>
-</p>
-
-<p>
-  <strong>Treatment:</strong>
-  <%= @record.treatment %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @record.height %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @record.weight %>
-</p>
-
-<p>
-  <strong>Temperature:</strong>
-  <%= @record.temperature %>
-</p>
-
-<p>
-  <strong>Blood pressure:</strong>
-  <%= @record.blood_pressure %>
-</p>
-
-<p>
-  <strong>Drugs given:</strong>
-  <%= @record.drugs_given %>
-</p>
-
-<p>
-  <strong>Front desk updated:</strong>
-  <%= @record.front_desk_updated %>
-</p>
-
-<p>
-  <strong>Nurse updated:</strong>
-  <%= @record.nurse_updated %>
-</p>
-
-<p>
-  <strong>Doctor updated:</strong>
-  <%= @record.doctor_updated %>
-</p>
-
-<p>
-  <strong>Pharmarcist updated:</strong>
-  <%= @record.pharmarcist_updated %>
-</p>
-
-<p>
-  <strong>Front desk name:</strong>
-  <%= @record.front_desk_name %>
-</p>
-
-<p>
-  <strong>Nurse name:</strong>
-  <%= @record.nurse_name %>
-</p>
-
-<p>
-  <strong>Doctor name:</strong>
-  <%= @record.doctor_name %>
-</p>
-
-<p>
-  <strong>Pharmacist name:</strong>
-  <%= @record.pharmacist_name %>
-</p>
-
-<p>
-  <strong>Nurse update time:</strong>
-  <%= @record.nurse_update_time %>
-</p>
-
-<p>
-  <strong>Doctor update time:</strong>
-  <%= @record.doctor_update_time %>
-</p>
-
-<p>
-  <strong>Pharmacist update time:</strong>
-  <%= @record.pharmacist_update_time %>
-</p>
-
-<%= link_to 'Edit', edit_record_path(@record) %> |
-<%= link_to 'Back', records_path %>
