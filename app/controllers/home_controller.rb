@@ -8,4 +8,7 @@ class HomeController < ApplicationController
   def profile
   end
 
+  def admin
+  end
+
 end
