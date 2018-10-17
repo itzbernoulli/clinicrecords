@@ -9,18 +9,15 @@
 							</h1>
 							<div class="single-footer-widget newsletter">
 								<div id="mc_embed_signup">
-									<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+									<div class="search">
+						              <%= form_tag home_index_path, method: :get do %>
+						                <%= text_field_tag :term, "",  :placeholder => "Select a date" , :class=>"input" %>
+						                <%= button_tag(type: 'submit',name:nil, class: "search-btn") do %>
+						                 <i class="fa fa-search"></i>
+						                <% end %>
 
-										<div class="form-group row" style="width: 100%">
-											<div class="col-lg-8 col-md-12">
-												<input name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" required="" type="email">
-											</div> 
-										
-											<div class="col-lg-4 col-md-12">
-												<button class="nw-btn primary-btn circle">Search<span class="lnr lnr-magnifier"></span></button>
-											</div> 
-										</div>												
-									</form>
+						              <% end %>
+						            </div>
 								</div>		
 							</div>
 						</div>	

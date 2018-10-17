@@ -53,23 +53,9 @@
 
                 <div class="col-lg-6 form-group">
                   <!-- <%= f.label :department %> -->
-                  <%= f.text_field :department, class: "common-input mb-20 form-control", placeholder: "Department"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :complaints %> -->
-                  <%= f.text_area :complaints , class: "common-input mb-20 form-control", placeholder: "Complaints" %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :diagnosis %> -->
-                  <%= f.text_area :diagnosis, class: "common-input mb-20 form-control", placeholder: "Diagnosis"  %>
-                </div>
-
-                <div class="col-lg-6 form-group">
-                  <!-- <%= f.label :treatment %> -->
-                  <%= f.text_area :treatment, class: "common-input mb-20 form-control", placeholder: "Treatment"  %>
-                </div>
+                   <%= f.collection_select :department_id, Department.order(:name), :id, :name, {},{class: "common-input mb-20 form-control"} %>
+                  
+                </div> 
 
                 <div class="col-lg-6 form-group">
                   <!-- <%= f.label :height %> -->
@@ -89,6 +75,21 @@
                 <div class="col-lg-6 form-group">
                   <!-- <%= f.label :blood_pressure %> -->
                   <%= f.text_field :blood_pressure, class: "common-input mb-20 form-control", placeholder: "Blood Pressure"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :complaints %> -->
+                  <%= f.text_area :complaints , class: "common-input mb-20 form-control", placeholder: "Complaints" %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :diagnosis %> -->
+                  <%= f.text_area :diagnosis, class: "common-input mb-20 form-control", placeholder: "Diagnosis"  %>
+                </div>
+
+                <div class="col-lg-6 form-group">
+                  <!-- <%= f.label :treatment %> -->
+                  <%= f.text_area :treatment, class: "common-input mb-20 form-control", placeholder: "Treatment"  %>
                 </div>
 
                 <div class="col-lg-6 form-group">
