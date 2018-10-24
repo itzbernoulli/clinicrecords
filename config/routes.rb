@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :appointments
+  resources :diseases
   root to: 'home#index'
   resources :departments
   resources :records
