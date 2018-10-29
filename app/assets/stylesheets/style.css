@@ -368,3 +368,43 @@ tbody tr:hover {
 .newsletter{
   margin-top: 10px;
 }
+
+.search form {
+  position: relative;
+  max-width: 520px;
+  margin: 30px auto;
+}
+
+.search form:after {
+  content: "\f003";
+  font-family: FontAwesome;
+  position: absolute;
+  font-size: 160px;
+  color: #E4E7ED;
+  top: 15px;
+  -webkit-transform: translateY(-50%) rotate(15deg);
+  -ms-transform: translateY(-50%) rotate(15deg);
+  transform: translateY(-50%) rotate(15deg);
+  z-index: -1;
+  left: -90px;
+}
+
+.search form .input {
+  width: calc(100% - 60px);
+  margin-right: -4px;
+  border-radius: 40px 0px 0px 40px;
+  height: 40px;
+  padding: 0px 15px;
+  border: 1px solid #E4E7ED;
+  background-color: #FFF;
+}
+
+.search form .search-btn {
+  width: 50px;
+  height: 41px;
+  font-weight: 700;
+  background: #69be00;
+  color: #FFF;
+  border: none;
+  border-radius: 0px 40px 40px 0px;
+}

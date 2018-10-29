@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
     protected  
     def after_sign_in_path_for(resource) 
-        records_path
+    	if resource.is_admin?
+    		admin_home_index_path
+    	else
+    		records_path
+    	end        
     end
 end

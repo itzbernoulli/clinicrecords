@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   resources :nurses
   resources :doctors
   resources :pharmacists
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users"}
   resources :frontdesk
   resources :home, only: [:index] do 
     collection do
-      get :admin
+      get :admin, :personnels
     end
   end
 
