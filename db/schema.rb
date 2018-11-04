@@ -54,10 +54,9 @@ ActiveRecord::Schema.define(version: 20181017125320) do
     t.string   "temperature"
     t.string   "blood_pressure"
     t.string   "drugs_given"
-    t.boolean  "front_desk_updated"
-    t.boolean  "nurse_updated"
-    t.boolean  "doctor_updated"
-    t.boolean  "pharmarcist_updated"
+    t.boolean  "nurse_updated",          default: false
+    t.boolean  "doctor_updated",         default: false
+    t.boolean  "pharmacist_updated",     default: false
     t.string   "front_desk_name"
     t.string   "nurse_name"
     t.string   "doctor_name"
@@ -65,8 +64,8 @@ ActiveRecord::Schema.define(version: 20181017125320) do
     t.datetime "nurse_update_time"
     t.datetime "doctor_update_time"
     t.datetime "pharmacist_update_time"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "department_id"
     t.string   "admin_name"
     t.datetime "admin_update_time"
