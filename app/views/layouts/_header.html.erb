@@ -9,7 +9,8 @@
                 <% end %>   
               </div>
               <div class="col-lg-6 col-sm-6 col-8 header-top-right">
-                  <% if user_signed_in? %>                  
+                  <% if user_signed_in? %> 
+                                   
                     <%= link_to "PATIENT RECORDS", records_path, :class=>"primary-btn text-uppercase" %>
                     <%= link_to "LOG OUT", destroy_user_session_path, :method => :delete, :class=>"primary-btn text-uppercase" %>                                
                   <% else %>

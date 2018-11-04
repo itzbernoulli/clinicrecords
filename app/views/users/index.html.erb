@@ -1,0 +1,82 @@
+      <!-- start banner Area -->
+      <section class="banner-area relative about-banner" id="home"> 
+        <div class="overlay overlay-bg"></div>
+        <div class="container">       
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+              <h1 class="text-white">
+                Front Desk        
+              </h1> 
+              <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="fa fa-arrow-right"></span>  <a href="contact.html"> Records</a></p>
+            </div>  
+          </div>
+        </div>
+      </section>
+      <!-- End banner Area -->  
+
+
+<% count = 0 %>
+
+<% if @users.count > 0 %>
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <p id="notice"><%= notice %></p>
+        <%= link_to 'New Personnel', new_user_path %>
+        <div class="table100">
+            <table>
+              <thead>
+                <tr>
+                  <th>S/No</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Title</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Added By</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @users.each do |user| %>
+                  <% count += 1 %>
+                  <tr>
+                    <td><%= count %></td>
+                    <td><%= user.first_name %></td>
+                    <td><%= user.last_name %></td>
+                    <td><%= user.title %></td>
+                    <td><%= user.phone_number %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.admin_name %></td>
+                    <td><%= link_to 'Show', user %></td>
+                    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+        <%= link_to 'New Personnel', new_user_path %>
+      </div>
+    </div>
+  </div>
+
+<br>
+<% else %>
+   <!-- Start facilities Area -->
+      <section class="facilities-area section-gap">
+        <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-70 col-lg-7">
+                        <div class="title text-center">
+                          <p id="notice"><%= notice %></p>
+                            <h1 class="mb-10">No Personnels.</h1>
+                            <p>No personnel record has been inputted. Click on <%= link_to 'New Personnel', new_user_path %> to start.</p>
+                        </div>
+                    </div>
+                </div>
+        </div>  
+      </section>
+      <!-- End facilities Area -->
+<% end %>
