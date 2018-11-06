@@ -36,6 +36,28 @@ class User < ApplicationRecord
   	is_type?("pharmacist")
   end
 
+   def self.to_csv
+    attributes = %w{id email first_name last_name}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << attributes.map{ |attr| user.send(attr) }
+      end
+    end
+  end
+
+  # def self.to_csv
+  #   CSV.generate do |csv|
+  #     csv << column_names
+  #     all.each do |result|
+  #       csv << result.attributes.values_at(*column_names)
+  #     end
+  #   end
+  # end
+
+
   # def self.new_with_session(params, session)
   #   super.tap do |user|
   #     if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
