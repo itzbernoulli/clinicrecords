@@ -12,6 +12,23 @@ class HomeController < ApplicationController
     @users = User.all
   end
 
+
+  def download_data
+    @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+    end
+  end
+
+  def show_personnel
+    set_user
+  end
+
+  def new_personnel
+  end
+
   def admin
     if params[:term]
       # puts DateTime.parse(params[:term])
@@ -25,5 +42,12 @@ class HomeController < ApplicationController
   	#Personnel count = 
   	#Record Today
   end
+
+  private
+
+  def set_user
+      @user = User.find(params[:id])
+    end
+
 
 end

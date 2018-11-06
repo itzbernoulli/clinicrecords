@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
   resources :appointments
   resources :diseases
-  root to: 'home#index'
   resources :departments
   resources :records
   resources :nurses
   resources :doctors
   resources :pharmacists
-  devise_for :users, :controllers => {:registrations => "users"}
+  devise_for :users
   resources :frontdesk
   resources :home, only: [:index] do 
     collection do
-      get :admin, :personnels
+      get :admin, :personnels,:download_data, :show_personnel
     end
   end
 
