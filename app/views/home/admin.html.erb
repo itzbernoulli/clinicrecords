@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <!-- start banner Area -->
 			<section class="banner-area relative about-banner" id="home">	
 				<div class="overlay overlay-bg"></div>
@@ -47,21 +48,14 @@
 					</div>
 			
 					<div class="section-top-border">
-						<h3 class="mb-30">Definition</h3>
+						<h3 class="mb-30">Analytics</h3>
 						<div class="row">
-							<div class="col-md-4">
-								<a href="#" class="genric-btn primary radius">Primary</a>
+							<div class="col-md-6">
+								<canvas id="patientsChart" width="400" height="400"></canvas>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="single-defination">
-									<h4 class="mb-20">Definition 02</h4>
-									<p>Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks</p>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="single-defination">
-									<h4 class="mb-20">Definition 03</h4>
-									<p>Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks</p>
+									<canvas id="personnelChart" width="400" height="400"></canvas>
 								</div>
 							</div>
 						</div>
@@ -69,3 +63,81 @@
 				</div>
 			</div>
 			<!-- End Align Area -->
+
+<script>
+var ctx = document.getElementById("patientsChart").getContext('2d');
+var patientsChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Patients',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+var ctx = document.getElementById("personnelChart").getContext('2d');
+var personnelChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Medical Personnels',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>

@@ -38,6 +38,8 @@ class HomeController < ApplicationController
       @records = Record.where(created_at: Date.parse(params[:term]))
     else
       @records = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+      # puts Record.order("date_trunc('day', created_at) DESC, upvotes DESC").limit(100)
+      puts Record.order('created_at DESC').limit(100).pluck(:created_at)
     end
   	#Personnel count = 
   	#Record Today

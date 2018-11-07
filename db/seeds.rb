@@ -19,7 +19,9 @@ category_description = "This is a text that describes what this section does for
 
 
 ##Create db roles
-roles = ["superadmim","admin","frontdesk","nurse","doctor","pharmacist"]
+roles = ["admin","frontdesk","nurse","doctor","pharmacist"]
+
+users = Array.new
 
 #get the length of the roles 3
 role_len = roles.length
@@ -45,6 +47,11 @@ role_len.times do |n|
 
 	puts user.first_name + " created"
 
+	users << user
+
+	puts "*******users array*********"
+	puts users
+	puts "*******users array*********"
 
 	userrole = UserRole.create(
 		user_id: user.id,
@@ -60,4 +67,7 @@ departments.length.times do |d|
 	Department.create(
 		name: departments[d])
 end
+
+## Create Records for a month
+today = DateTime.now
 
