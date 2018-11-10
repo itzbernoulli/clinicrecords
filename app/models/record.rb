@@ -1,6 +1,8 @@
 class Record < ApplicationRecord
 	belongs_to :department
 
+	validates :dob, :presence => true
+
 	def age
 		age = ((Date.today - dob).to_i/365.25).to_i
 		if age < 1
