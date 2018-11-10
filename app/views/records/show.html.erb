@@ -101,6 +101,15 @@
                   <p><%= @record.blood_pressure %></p>
                 </div>
               </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-user"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Nurse</h5>
+                  <p><%= @record.nurse_name %></p>
+                </div>
+              </div> 
             </div>
 
           <div class="col-lg-4 d-flex flex-column address-wrap"> 
@@ -133,11 +142,29 @@
               </div> 
               <div class="single-contact-address d-flex flex-row">
                 <div class="icon">
+                  <span class="lnr lnr-user"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Doctor</h5>
+                  <p><%= @record.doctor_name %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
                   <span class="lnr lnr-pointer-right"></span>
                 </div>
                 <div class="contact-details">
                   <h5>Drugs Given</h5>
                   <p><%= @record.drugs_given %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-user"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Pharmacist</h5>
+                  <p><%= @record.pharmacist_name %></p>
                 </div>
               </div> 
             </div>

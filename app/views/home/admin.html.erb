@@ -15,7 +15,7 @@
 									<div class="col-md-4">
 										<div class="search">
 							              <%= form_tag admin_home_index_path, method: :get do %>
-							                <%= date_field_tag :term, "",  :placeholder => "Select a date" , :class=>"input" %>
+							                <%= date_field_tag :term, Date.today,  :placeholder => "Select a date" , :class=>"input" %>
 							                <%= button_tag(type: 'submit',name:nil, class: "search-btn") do %>
 							                 <i class="fa fa-search"></i>
 							                <% end %>
@@ -35,19 +35,19 @@
 			<div class="whole-wrap">
 				<div class="container">
 					<div class="section-top-border">
-						<div class="row">
+						<div class="row text-center">
 							<div class="button-group-area mt-40">
-								<%= link_to "Medical personnel", personnels_home_index_path , :class => "genric-btn primary radius" %>
-								<a href="#" class="genric-btn primary radius">Medical Personnel</a>
-								<a href="#" class="genric-btn success radius">Week records</a>
-								<a href="#" class="genric-btn info radius">Info</a>
-								<a href="#" class="genric-btn warning radius">Warning</a>
-								<a href="#" class="genric-btn danger radius">Danger</a>
+								<%= link_to "Medical personnel", personnels_path , :class => "genric-btn primary radius" %>
+                                <%= link_to "Appointments", appointments_path , :class => "genric-btn info radius" %>
+                                <%= link_to "This Week", admin_home_index_path(:term => "week"), :class => "genric-btn danger radius" %>
+                                <%= link_to "This Month", admin_home_index_path(:term => "month") , :class => "genric-btn success radius" %>
+                                <%= link_to "This Year", admin_home_index_path(:term => "year") , :class => "genric-btn purple radius" %>
+                                <%= link_to "All Records", admin_home_index_path(:term => "all") , :class => "genric-btn warning radius" %>
 							</div>
 						</div>
 					</div>
 			
-					<div class="section-top-border">
+					<!-- <div class="section-top-border">
 						<h3 class="mb-30">Analytics</h3>
 						<div class="row">
 							<div class="col-md-6">
@@ -59,10 +59,94 @@
 								</div>
 							</div>
 						</div>
-					</div>					
+					</div>	 -->				
 				</div>
 			</div>
 			<!-- End Align Area -->
+
+<% count = 0 %>
+
+<% if @records.count > 0 %>
+  
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <p id="notice"><%= notice %></p>
+        <div class="table100">
+          <table>
+            <thead>
+              <tr>
+                <th>S/No</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Complaints</th>
+                <th>Diagnosis</th>
+                <th>Treatment</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Temperature</th>
+                <th>Blood pressure</th>
+                <th>Drugs given</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @records.each do |record| %>
+              <% count+=1 %>
+                <tr>
+                  <td><%= count %></td>
+                  <td><%= record.created_at.to_date %></td>
+                  <td><%= record.name %></td>
+                  <td><%= record.age %></td>
+                  <td><%= record.gender %></td>
+                  <td><%= record.department.name %></td>
+                  <td><%= record.complaints %></td>
+                  <td><%= record.diagnosis %></td>
+                  <td><%= record.treatment %></td>
+                  <td><%= record.height %></td>
+                  <td><%= record.weight %></td>
+                  <td><%= record.temperature %></td>
+                  <td><%= record.blood_pressure %></td>
+                  <td><%= record.drugs_given %></td>
+                  <td><%= link_to 'Show', record %></td> 
+                  <!-- <td><%= link_to 'Edit', edit_record_path(record) %></td> -->
+                  <!-- <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          </div>
+        </br>
+        <%= link_to 'New Record', new_record_path %>
+      
+        
+        <%= link_to "Generate Report", admin_home_index_path(format: "csv") , :class => "genric-btn info radius" %>
+      </div>
+    </div>
+  </div>
+
+<br>
+<% else %>
+   <!-- Start facilities Area -->
+      <section class="facilities-area section-gap">
+        <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-70 col-lg-7">
+                        <div class="title text-center">
+                            <h1 class="mb-10">No Records.</h1>
+                            <p>No patient record has been inputted for today. Click on <%= link_to 'New Record', new_frontdesk_path %> to start.</p>
+                        </div>
+                    </div>
+                </div>
+        </div>  
+      </section>
+      <!-- End facilities Area -->
+<% end %>
 
 <script>
 var ctx = document.getElementById("patientsChart").getContext('2d');

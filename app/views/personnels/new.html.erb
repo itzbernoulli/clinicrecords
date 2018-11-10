@@ -1,0 +1,69 @@
+      <!-- start banner Area -->
+      <section class="banner-area relative about-banner" id="home"> 
+        <div class="overlay overlay-bg"></div>
+        <div class="container">       
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+              <h1 class="text-white">
+                New Personnel      
+              </h1> 
+              <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Personnel</a></p>
+            </div>  
+          </div>
+        </div>
+      </section>
+      <!-- End banner Area --> 
+      <section class="contact-page-area section-gap">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+				<%= form_tag('/personnels') do |f| %>
+				  <% if @personnel.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@personnel.errors.count, "error") %> prohibited this personnel from being saved:</h2>
+
+				      <ul>
+				      <% @personnel.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+
+				  <div class="col-lg-6 form-group">
+				    <%= text_field_tag :first_name, nil, class: "common-input mb-20 form-control", placeholder: "First name"  %>
+				  </div>
+
+				  <div class="col-lg-6 form-group">
+				    <%= text_field_tag :last_name, nil, class: "common-input mb-20 form-control", placeholder: "Last name"  %>
+				  </div>
+
+				  <div class="col-lg-6 form-group">
+				    <%= text_field_tag :phone_number , nil, class: "common-input mb-20 form-control", placeholder: "Phone number" %>
+				  </div>
+
+				  <div class="col-lg-6 form-group">
+				    <%= select_tag "title", 
+				    "<option>Mr</option>
+				    <option>Mrs</option>
+				    <option>Miss</option>".html_safe , class: "common-input mb-20 form-control"%>
+				  </div>
+
+				  <div class="col-lg-6 form-group">
+				    <%= text_field_tag :email ,  nil,class: "common-input mb-20 form-control", placeholder: "email" %>
+				  </div>
+
+				  <div class="col-lg-6 form-group">
+				  	<%= collection_select :user_role, :user_role_id, Role.order(:name), :id, :name, {},{class: "common-input mb-20 form-control"} %>
+				  </div>
+
+				  <div class="actions">
+				    <%= submit_tag "Submit" , :class=>"genric-btn primary"%>
+				  </div>
+				<% end %>
+
+				<%= link_to 'Back', personnels_path %>
+				</div>
+          </div>
+        </div>  
+      </section>

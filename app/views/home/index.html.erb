@@ -4,6 +4,9 @@
         <div class="container">
           <div class="row fullscreen d-flex align-items-center justify-content-center">
             <div class="banner-content col-lg-8 col-md-12">
+              <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %>"><%= value %></div>
+              <% end %>
               <h1>
                 We Care for Your Health
                 Every Moment    
@@ -61,10 +64,7 @@
 
                   <%= f.text_field :name, :class => "form-control", :placeholder => "Patient Name" %>
                   <%= f.text_field :phone, :class => "form-control", :placeholder => "Phone Number" %>
-                  <%= f.text_field :email, :class => "form-control", :placeholder => "Email Address" %>
-                  <%= f.date_field :date_of_birth, class: "form-control", placeholder: "Date of Birth"%>                
-                  <%= f.collection_select :disease_id, Disease.order(:name), :id, :name, {},{class: "form-control"} %>
-                  <%= f.date_select :appointment_date, class: "form-control", placeholder: "Appointment Date"%>              
+                  <%= f.text_field :email, :class => "form-control", :placeholder => "Email Address" %>             
                   <%= f.text_area :message, :class => "form-control", :placeholder => "Message" , cols: 20, rows: 10%>                  
                   <%= f.submit "Confirm Booking", :class => "primary-btn text-uppercase" %>
               <% end %>
@@ -75,7 +75,7 @@
       <!-- End appointment Area -->
 
       <!-- Start facilities Area -->
-      <section class="facilities-area section-gap">
+      <section class="facilities-area section-gap" id="facilities-area">
         <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="menu-content pb-70 col-lg-7">
@@ -129,7 +129,7 @@
       
 
       <!-- Start offered-service Area -->
-      <section class="offered-service-area section-gap">
+      <section class="offered-service-area section-gap" id="departments">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-8 offered-left">
@@ -141,10 +141,10 @@
                 <div class="col-lg-6 col-md-6">
                   <div class="single-service">
                     <div class="thumb">
-                      <%= image_tag "s1", :alt => "image", :class=>"img-fluid" %>  
+                      <%= image_tag "s2", :alt => "image", :class=>"img-fluid" %>  
                     </div>
                     <a href="#">
-                      <h4 class="text-white">Cardiac Treatment</h4>
+                      <h4 class="text-white">Emergencies</h4>
                     </a>  
                     <p>
                       Opthamology Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -155,7 +155,7 @@
                   <div class="single-service">
                     <div class="thumb">
 
-                      <%= image_tag "s2", :alt => "image", :class=> "img-fluid" %>    
+                      <%= image_tag "s1", :alt => "image", :class=> "img-fluid" %>    
                     </div>
                     <a href="#">
                       <h4 class="text-white">Routine Checkup</h4>
@@ -457,17 +457,18 @@
       <!-- end recent-blog Area --> 
 
       <!-- start footer Area -->    
-      <footer class="footer-area section-gap">
+      <footer class="footer-area section-gap" id="contact">
         <div class="container">
           <div class="row">
             <div class="col-lg-2  col-md-6">
               <div class="single-footer-widget">
-                <h6>Top Products</h6>
+                <h6>Departments</h6>
                 <ul class="footer-nav">
-                  <li><a href="#">Managed Website</a></li>
-                  <li><a href="#">Manage Reputation</a></li>
-                  <li><a href="#">Power Tools</a></li>
-                  <li><a href="#">Marketing Service</a></li>
+                  <li><a href="#">Pharmacy</a></li>
+                  <li><a href="#">Data</a></li>
+                  <li><a href="#">Medical Doctors</a></li>
+                  <li><a href="#">Nursing</a></li>
+                  <li><a href="#">Front Desk</a></li>
                 </ul>
               </div>
             </div>
@@ -475,10 +476,10 @@
               <div class="single-footer-widget mail-chimp">
                 <h6 class="mb-20">Contact Us</h6>
                 <p>
-                  56/8, Santa bullevard, Rocky beach, San fransisco, Los angeles, USA
+                  The Rock Cathedral, Lekki Penninsula II 105102, Lekki
                 </p>
-                <h3>012-6532-568-9746</h3>
-                <h3>012-6532-568-97468</h3>
+                <h3>0803-568-9746</h3>
+                <h3>0901-568-97468</h3>
               </div>
             </div>              
             <div class="col-lg-6  col-md-12">
@@ -508,10 +509,10 @@
             <p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy; 2018 All rights reserved | This Website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://turdla.com" target="_blank">Turdla Innovations</a></p>
             <div class="col-lg-4 col-sm-12 footer-social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-dribbble"></i></a>
-              <a href="#"><i class="fa fa-behance"></i></a>
+              <a href="https://www.facebook.com/houseontherock"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/houseontherock"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.instagram.com/houseontherockchurch/"><i class="fa fa-instagram"></i></a>
+              <a href="https://plus.google.com/+HouseontherockOrgNg"><i class="fa fa-google-plus"></i></a>
             </div>          
           </div>
         </div>

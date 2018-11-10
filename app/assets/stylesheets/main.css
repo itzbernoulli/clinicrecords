@@ -1177,6 +1177,30 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid transparent;
 }
 
+.genric-btn.purple {
+  color: #fff;
+  background: #FF00FF;
+  border: 1px solid transparent;
+}
+
+.genric-btn.purple:hover {
+  color: #f44a40;
+  border: 1px solid #FF00FF;
+  background: #fff;
+}
+
+.genric-btn.purple-border {
+  color: #f44a40;
+  border: 1px solid #FF00FF;
+  background: #fff;
+}
+
+.genric-btn.purple-border:hover {
+  color: #fff;
+  background: #FF00FF;
+  border: 1px solid transparent;
+}
+
 .genric-btn.link {
   color: #222222;
   background: #f9f9ff;

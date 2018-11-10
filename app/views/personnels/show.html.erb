@@ -1,0 +1,93 @@
+      <!-- start banner Area -->
+      <section class="banner-area relative about-banner" id="home"> 
+        <div class="overlay overlay-bg"></div>
+        <div class="container">       
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+              <h1 class="text-white">
+              Personnel Detail       
+              </h1> 
+              <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  Personnels</p>
+            </div>  
+          </div>
+        </div>
+      </section>
+      <!-- End banner Area -->
+
+      <!-- Start contact-page Area -->
+      <section class="contact-page-area section-gap">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+                <p id="notice"><%= notice %></p> 
+            </div>
+          </div>
+          <div class="row">         
+            <div class="col-lg-4 d-flex flex-column address-wrap">
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-eye"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Title</h5>
+                  <p><%= @personnel.title %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-license"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>First name</h5>
+                  <p>
+                    <%= @personnel.first_name %>
+                  </p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-license"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Last name</h5>
+                  <p><%= @personnel.last_name %></p>
+                </div>
+              </div>
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-phone-handset"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Phone number</h5>
+                  <p><%= @personnel.phone_number %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Email</h5>
+                  <p><%= @personnel.email %></p>
+                </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-user"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Personnel Role</h5>
+                  <% @personnel.roles.each do |p| %>
+                    <p><%= p.name %></p>
+                  <% end %>
+                </div>
+              </div>  
+            </div>
+            <div class="col-lg-8"> 
+            </div>
+            <div class="col-lg-12">
+                    <%= link_to 'Edit', edit_personnel_path(@personnel), :class => "genric-btn info" %> |
+                    <%= link_to 'Back', personnels_path ,:class => "genric-btn info-border"%>                    
+                  </div>
+          </div>
+        </div>  

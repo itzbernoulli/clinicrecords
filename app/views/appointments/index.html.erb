@@ -1,39 +1,74 @@
+<!-- start banner Area -->
+      <section class="banner-area relative about-banner" id="home"> 
+        <div class="overlay overlay-bg"></div>
+        <div class="container">       
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+              <h1 class="text-white">
+                Appointments     
+              </h1> 
+              <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Appointments</a></p>
+            </div>  
+          </div>
+        </div>
+      </section>
+      <!-- End banner Area --> 
+
+<% count = 0 %>
+
+<% if @appointments.count > 0 %>
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
 <p id="notice"><%= notice %></p>
+        <div class="table100">
+            <table>
+              <thead>
+                <tr>
+                  <th>S/No</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
 
-<h1>Appointments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Date of birth</th>
-      <th>Appointment date</th>
-      <th>Message</th>
-      <th>Disease</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @appointments.each do |appointment| %>
-      <tr>
-        <td><%= appointment.name %></td>
-        <td><%= appointment.phone %></td>
-        <td><%= appointment.email %></td>
-        <td><%= appointment.date_of_birth %></td>
-        <td><%= appointment.appointment_date %></td>
-        <td><%= appointment.message %></td>
-        <td><%= appointment.disease %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <tbody>
+                <% @appointments.each do |appointment| %>
+                  <% count += 1 %>
+                  <tr>
+                    <td><%= count %></td>
+                    <td><%= appointment.name %></td>
+                    <td><%= appointment.phone %></td>
+                    <td><%= appointment.email %></td>
+                    <td><%= appointment.message %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <br>
+<% else %>
+   <!-- Start facilities Area -->
+      <section class="facilities-area section-gap">
+        <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-70 col-lg-7">
+                        <div class="title text-center">
+                          <p id="notice"><%= notice %></p>
+                            <h1 class="mb-10">No Appointments.</h1>
+                            <p>No patient appointments have been booked for today.</p>
+                        </div>
+                    </div>
+                </div>
+        </div>  
+      </section>
+      <!-- End facilities Area -->
+<% end %>
 
-<%= link_to 'New Appointment', new_appointment_path %>
+
+
