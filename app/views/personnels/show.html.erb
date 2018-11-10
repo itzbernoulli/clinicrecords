@@ -81,6 +81,15 @@
                     <p><%= p.name %></p>
                   <% end %>
                 </div>
+              </div> 
+              <div class="single-contact-address d-flex flex-row">
+                <div class="icon">
+                  <span class="lnr lnr-thumbs-up"></span>
+                </div>
+                <div class="contact-details">
+                  <h5>Verification Status</h5>
+                    <p><%= @personnel.is_verified %></p>
+                </div>
               </div>  
             </div>
             <div class="col-lg-8"> 

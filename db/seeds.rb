@@ -43,7 +43,9 @@ role_len.times do |n|
 		first_name: roles[n],
 		last_name: roles[n],
 		email: roles[n]+"@demo.com",
-		password: roles[n]+"@demo.com")
+		password: roles[n]+"@demo.com"
+		is_verified: true,
+		phone_number: "08081234567")
 
 	puts user.first_name + " created"
 

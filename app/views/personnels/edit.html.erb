@@ -56,6 +56,11 @@
 				  	<%= collection_select :role_id, :user_role_id, Role.order(:name), :id, :name, {:selected => @personnel.roles.map(&:id)},{class: "common-input mb-20 form-control"} %>
 				  </div>
 
+				  <div class="col-lg-6 form-group">
+				  	<%= check_box_tag :is_verified, "1" ,@personnel.is_verified %>
+				  	<%= label_tag "Verify Personnel?" %>
+				  </div>
+
 				  <div class="actions">
 				    <%= submit_tag "Submit" , :class=>"genric-btn primary"%>
 				  </div>

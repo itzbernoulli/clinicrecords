@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :user_roles
   has_many :roles, through: :user_roles
+  validates :dob, :presence => true
 
   def fullname
     self.first_name + " " + self.last_name

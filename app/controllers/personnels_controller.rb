@@ -31,6 +31,13 @@ class PersonnelsController < ApplicationController
     @personnel.title = params["title"]
     @personnel.email = params["email"]
     @personnel.password = params["email"]
+    @personnel.admin_name = current_user.fullname
+    @personnel.admin_update_time = DateTime.now
+    if params["is_verified"].nil?
+    @personnel.is_verified = false
+    else
+    @personnel.is_verified = true
+    end
 
 
     respond_to do |format|
@@ -49,11 +56,11 @@ class PersonnelsController < ApplicationController
   # PATCH/PUT /personnels/1.json
   def update
 
-    @personnel.first_name = params["first_name"]
-    @personnel.last_name = params["last_name"]
-    @personnel.phone_number = params["phone_number"]
-    @personnel.title = params["title"]
-    @personnel.email = params["email"]
+    # @personnel.first_name = params["first_name"]
+    # @personnel.last_name = params["last_name"]
+    # @personnel.phone_number = params["phone_number"]
+    # @personnel.title = params["title"]
+    # @personnel.email = params["email"]
 
     respond_to do |format|
       if @personnel.update(personnel_params)
@@ -85,7 +92,7 @@ class PersonnelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personnel_params
-      params.permit(:first_name, :last_name, :phone_number, :title, :email)
+      params.permit(:first_name, :last_name, :phone_number, :title, :email, :is_verified)
     end
 
     def role_params
