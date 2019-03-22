@@ -30,12 +30,6 @@ class Record < ApplicationRecord
     end
   end
 
-  def icd_title
-  	# icd.try(:title)s
-  end
-
-  def icd_title=(name)
-  	
-  end
+  self.per_page = 10
 
 end

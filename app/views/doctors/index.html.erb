@@ -16,12 +16,12 @@
 <% count = 0 %>
 
 <% if @records.count > 0 %>
-  <div class="limiter">
+  <div class="limiter table-responsive">
     <div class="container-table100">
       <div class="wrap-table100">
               <p id="notice"><%= notice %></p>
         <div class="table100">
-          <table class="table-responsive">
+          <table>
             <thead>
               <tr>
                 <th>S/No</th>
@@ -55,7 +55,7 @@
                   <td><%= record.temperature %></td>
                   <td><%= record.blood_pressure %></td>
                   <td><%= record.complaints %></td>
-                  <td><%= record.icd.title %></td>
+                  <td><%= record.icd.nil? ? "" : record.icd.title %></td>
                   <td><%= record.treatment %></td>               
                   <td><%= record.doctor_name %></td>
                   <td><%= link_to 'Show', record %></td>

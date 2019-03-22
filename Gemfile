@@ -59,3 +59,4 @@ gem 'omniauth-facebook'
 # Use Omniauth Twitter plugin
 gem 'omniauth-twitter'
 gem 'bootstrap-datepicker-rails'
+gem 'will_paginate', '~> 3.1.0'
