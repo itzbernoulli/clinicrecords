@@ -112,11 +112,12 @@
                 <div class="row"> 
                   <div class="col-lg-6 form-group">          
                   <%= f.text_area :complaints , class: "common-input mb-20 form-control", placeholder: "Complaints" %>
-                  <%= f.text_area :diagnosis, class: "common-input mb-20 form-control", placeholder: "Diagnosis"  %>
-                  <%= f.text_area :treatment, class: "common-input mb-20 form-control", placeholder: "Treatment"  %>
                   <%= f.collection_select :icd_id, Icd.order(:title), :id, :title, {},{class: "common-input mb-20 form-control"} %>
+                  <%= f.text_area :treatment, class: "common-input mb-20 form-control", placeholder: "Treatment"  %>
+                  
                   <div class="col-lg-12">
-                      <%= f.submit "Update Record", :class=>"genric-btn primary" %>                
+                    <%= f.button "Update Record" ,:class=>"genric-btn primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating Record..."}%>
+            
                   </div>
                 </div>
               <% end %>

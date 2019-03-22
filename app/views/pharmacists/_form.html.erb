@@ -144,7 +144,7 @@
                   <div class="col-lg-6 form-group">
                   <%= f.text_field :drugs_given , class: "common-input mb-20 form-control", placeholder: "Drugs given" %>
                   <div class="col-lg-12">
-                      <%= f.submit "Update Record", :class=>"genric-btn primary" %>                
+                    <%= f.button "Update Record" ,:class=>"genric-btn primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating Record..."}%>                
                   </div>
                 </div>
               <% end %>

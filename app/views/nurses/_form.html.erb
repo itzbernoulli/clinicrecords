@@ -16,7 +16,7 @@
               </div>
               <div class="single-contact-address d-flex flex-row">
                 <div class="icon">
-                  <span class="lnr lnr-moustache"></span>
+                  <span class="lnr lnr-mustache"></span>
                 </div>
                 <div class="contact-details">
                   <h5>Date Of Birth</h5>
@@ -80,7 +80,7 @@
                   <%= f.text_field :temperature, class: "common-input mb-20 form-control", placeholder: "Temperature"  %>
                   <%= f.text_field :blood_pressure, class: "common-input mb-20 form-control", placeholder: "Blood Pressure"  %>
                   <div class="col-lg-12">
-                         <%= f.submit "Update Record", :class=>"genric-btn primary" %>                
+                    <%= f.button "Update Record" ,:class=>"genric-btn primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating Record..."}%>               
                   </div>
               <% end %>
                   </div>
