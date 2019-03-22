@@ -129,7 +129,7 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:name, :dob, :gender, :address, :health_care_provider, :department_id, :complaints, :diagnosis, :treatment, :height, :weight, :temperature, :blood_pressure, :drugs_given, :front_desk_updated, :nurse_updated, :doctor_updated, :pharmarcist_updated, :front_desk_name, :nurse_name, :doctor_name, :pharmacist_name, :nurse_update_time, :doctor_update_time, :pharmacist_update_time)
+      params.require(:record).permit(:icd_id,:name, :dob, :gender, :address, :health_care_provider, :department_id, :complaints, :diagnosis, :treatment, :height, :weight, :temperature, :blood_pressure, :drugs_given, :front_desk_updated, :nurse_updated, :doctor_updated, :pharmarcist_updated, :front_desk_name, :nurse_name, :doctor_name, :pharmacist_name, :nurse_update_time, :doctor_update_time, :pharmacist_update_time)
     end
 
     def set_user_and_time
@@ -143,6 +143,7 @@ class RecordsController < ApplicationController
             @record.doctor_name = current_user.fullname
             @record.doctor_update_time = DateTime.now
             @record.doctor_updated = true
+            puts params[:icd_id]
           elsif current_user.is_pharmacist?
             @record.pharmacist_name = current_user.fullname
             @record.pharmacist_update_time = DateTime.now
@@ -152,4 +153,5 @@ class RecordsController < ApplicationController
             @record.admin_update_time = DateTime.now
           end
     end
+
 end

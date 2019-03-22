@@ -84,7 +84,7 @@
 
                 <div class="col-lg-6 form-group">
                   <!-- <%= f.label :diagnosis %> -->
-                  <%= f.text_area :diagnosis, class: "common-input mb-20 form-control", placeholder: "Diagnosis"  %>
+                  <%= f.collection_select :icd_id, Icd.order(:title), :id, :title, {},{class: "common-input mb-20 form-control"} %>
                 </div>
 
                 <div class="col-lg-6 form-group">

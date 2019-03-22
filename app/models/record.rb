@@ -1,5 +1,6 @@
 class Record < ApplicationRecord
 	belongs_to :department
+	belongs_to :icd
 
 	validates :dob, :presence => true
 
@@ -27,6 +28,14 @@ class Record < ApplicationRecord
         csv << attributes.map{ |attr| user.send(attr) }
       end
     end
+  end
+
+  def icd_title
+  	# icd.try(:title)s
+  end
+
+  def icd_title=(name)
+  	
   end
 
 end
