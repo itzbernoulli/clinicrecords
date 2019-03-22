@@ -81,3 +81,13 @@ end
 # 	puts today - d
 # end
 
+require 'csv'
+
+csv_text = File.read('categories.csv')
+
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+	Icd.create(code: row[0], title: row[1])
+	puts row[0] + " , " + row[1]
+end
+

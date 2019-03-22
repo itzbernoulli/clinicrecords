@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181110040737) do
+ActiveRecord::Schema.define(version: 20190319090055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20181110040737) do
 
   create_table "diseases", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "icds", force: :cascade do |t|
+    t.string   "code"
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,7 +76,9 @@ ActiveRecord::Schema.define(version: 20181110040737) do
     t.integer  "department_id"
     t.string   "admin_name"
     t.datetime "admin_update_time"
+    t.integer  "icd_id"
     t.index ["department_id"], name: "index_records_on_department_id", using: :btree
+    t.index ["icd_id"], name: "index_records_on_icd_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -113,6 +122,7 @@ ActiveRecord::Schema.define(version: 20181110040737) do
 
   add_foreign_key "appointments", "diseases"
   add_foreign_key "records", "departments"
+  add_foreign_key "records", "icds"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end
