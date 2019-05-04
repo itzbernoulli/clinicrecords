@@ -1,5 +1,5 @@
 class AddIcdIdToRecord < ActiveRecord::Migration[5.0]
   def change
-    add_reference :records, :icd, foreign_key: true
+    add_reference :records, :icd, foreign_key: true, type: :uuid
   end
 end

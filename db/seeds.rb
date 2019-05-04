@@ -10,6 +10,7 @@ Department.delete_all
 UserRole.delete_all
 User.delete_all
 Role.delete_all
+Icd.delete_all
 
 
 image = "https://cdn.shopify.com/s/files/1/1089/8530/products/Brain-Bag-Olive-Cordura-Steel-Parapack_1024x1024.jpg?v=1521490363"
@@ -86,8 +87,35 @@ require 'csv'
 csv_text = File.read('categories.csv')
 
 csv = CSV.parse(csv_text, :headers => true)
+count = 0
 csv.each do |row|
-	Icd.create(code: row[0], title: row[1])
-	puts row[0] + " , " + row[1]
+	if Icd.find_by_title(row[1]).nil?
+		Icd.create(code: row[0], title: row[1])
+		puts row[0] + " , " + row[1]
+	else
+		puts row[0] + " , " + row[1]
+		count+=1
+		puts "Skipped " + count.to_s
+	end
+end
+
+date = DateTime.now
+
+20.times do |x|
+	Record.create(
+		name: "Firstname_" + x.to_s + " Lastname_" + x.to_s,
+		dob: date - (20 +x).years,
+		gender: x%2 == 0 ? "Male" : "Female",
+		address: "No " + x.to_s + "Patients close, Off hospital area",
+		health_care_provider: "LUTH",
+		department_id: Department.find_by_name("Member").id,
+		height: "45",
+		weight: "89",
+		temperature: "27",
+		blood_pressure: "80/120",
+		front_desk_name: "frontdesk frontdesk",
+		nurse_updated: true,
+		nurse_name: "nurse nurse"
+		)
 end
 

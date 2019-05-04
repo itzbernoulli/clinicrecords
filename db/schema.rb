@@ -10,44 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190319090055) do
+ActiveRecord::Schema.define(version: 20190504090056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "appointments", force: :cascade do |t|
+  create_table "appointments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
     t.string   "email"
     t.string   "date_of_birth"
     t.string   "appointment_date"
     t.string   "message"
-    t.integer  "disease_id"
+    t.uuid     "disease_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["disease_id"], name: "index_appointments_on_disease_id", using: :btree
   end
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "diseases", force: :cascade do |t|
+  create_table "diseases", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "icds", force: :cascade do |t|
+  create_table "icds", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "code"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "records", force: :cascade do |t|
+  create_table "record_icds", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "record_id"
+    t.uuid     "icd_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["icd_id"], name: "index_record_icds_on_icd_id", using: :btree
+    t.index ["record_id"], name: "index_record_icds_on_record_id", using: :btree
+  end
+
+  create_table "records", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.date     "dob"
     t.string   "gender"
@@ -73,30 +83,28 @@ ActiveRecord::Schema.define(version: 20190319090055) do
     t.datetime "pharmacist_update_time"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.integer  "department_id"
+    t.uuid     "department_id"
     t.string   "admin_name"
     t.datetime "admin_update_time"
-    t.integer  "icd_id"
     t.index ["department_id"], name: "index_records_on_department_id", using: :btree
-    t.index ["icd_id"], name: "index_records_on_icd_id", using: :btree
   end
 
-  create_table "roles", force: :cascade do |t|
+  create_table "roles", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_roles", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
+  create_table "user_roles", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "user_id"
+    t.uuid     "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["role_id"], name: "index_user_roles_on_role_id", using: :btree
     t.index ["user_id"], name: "index_user_roles_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -121,8 +129,9 @@ ActiveRecord::Schema.define(version: 20190319090055) do
   end
 
   add_foreign_key "appointments", "diseases"
+  add_foreign_key "record_icds", "icds"
+  add_foreign_key "record_icds", "records"
   add_foreign_key "records", "departments"
-  add_foreign_key "records", "icds"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end

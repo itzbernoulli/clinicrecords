@@ -1,6 +1,6 @@
 class CreateRecords < ActiveRecord::Migration[5.0]
   def change
-    create_table :records do |t|
+    create_table :records, id: :uuid do |t|
       t.string :name
       t.date   :dob
       t.string :gender

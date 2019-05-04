@@ -89,6 +89,15 @@ class RecordsController < ApplicationController
   # PATCH/PUT /records/1.json
   def update
     set_user_and_time
+    @record.record_icds.delete_all
+    icd_string= params["icd_array"]
+    if icd_string.length > 1
+      icd_string.split(",").each do |icd|
+        @record.record_icds.create(icd_id: icd)
+      end
+    end
+    
+
     respond_to do |format|
       if @record.update(record_params)
         if current_user.is_frontdesk?
