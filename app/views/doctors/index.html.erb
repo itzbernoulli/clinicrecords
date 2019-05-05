@@ -55,7 +55,11 @@
                   <td><%= record.temperature %></td>
                   <td><%= record.blood_pressure %></td>
                   <td><%= record.complaints %></td>
-                  <td><%= record.complaints %></td>
+                  <td>
+                    <% record.icds.each do |icd| %>
+                      <p><%= icd.title %></p>
+                    <% end %>
+                  </td>
                   <td><%= record.treatment %></td>               
                   <td><%= record.doctor_name %></td>
                   <td><%= link_to 'Show', record %></td>
