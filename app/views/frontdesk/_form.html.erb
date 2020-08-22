@@ -28,13 +28,12 @@
                 <div class="col-lg-6 form-group inline">
                   <!-- <%= f.label :gender %> -->  
                   <div class="row">
-                    <div class="col-lg-2 visible-lg-inline">
+                    <div class="col-lg-6">
                       <%= f.label :gender, "Male", :value => "Male"  %>
                       <%= f.radio_button :gender, "Male" %>
-                    </div>
-                    <div class="col-lg-2 visible-lg-inline">
+                      <br />
                       <%= f.label :gender, "Female", :value => "Female" %>
-                    <%= f.radio_button :gender, "Female", :checked => true %>
+                      <%= f.radio_button :gender, "Female", :checked => true %>
                     </div>
                   </div>                                                     
                 </div>
