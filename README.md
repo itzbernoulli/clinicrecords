@@ -1,24 +1,32 @@
-# README
+# HOTR CLINIC APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application maps out how the process of patience response flows in the clinic and the software fits into that pattern.
 
-Things you may want to cover:
+[Link](http://hotrclinic.herokuapp.com/)
 
-* Ruby version
+There are 5 sections starting from the front desk
 
-* System dependencies
+Username: frontdesk@demo.com
+Password: frontdesk@demo.com
 
-* Configuration
+Data entry starts here and front desk personnels and admins are the only ones able to add patient records.
 
-* Database creation
+After creating a record, nurses can then see these records and add their own data to it.
 
-* Database initialization
+Username: nurse@demo.com
+Password: nurse@demo.com
 
-* How to run the test suite
+After nurses update, It becomes available to doctors
 
-* Services (job queues, cache servers, search engines, etc.)
+Username: doctor@demo.com
+Password: doctor@demo.com
 
-* Deployment instructions
+Then pharmacist
 
-* ...
+Username: pharmacist@demo.com
+Password: pharmacist@demo.com
+
+The Admin has access to all the data and can create credentials for all other members of the department and put them in their representative units within the department.
+
+Username: admin@demo.com
+Password: admin@demo.com
