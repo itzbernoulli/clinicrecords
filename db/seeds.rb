@@ -100,14 +100,13 @@ csv.each do |row|
 	end
 end
 
-date = DateTime.now
 
 20.times do |x|
 	Record.create(
-		name: "Firstname_" + x.to_s + " Lastname_" + x.to_s,
-		dob: date - (20 +x).years,
+		name: Faker::Name.name,
+		dob: Faker::Date.birthday(min_age: 1, max_age: 65),
 		gender: x%2 == 0 ? "Male" : "Female",
-		address: "No " + x.to_s + "Patients close, Off hospital area",
+		address: Faker::Address.full_address,
 		health_care_provider: "LUTH",
 		department_id: Department.find_by_name("Member").id,
 		height: "45",

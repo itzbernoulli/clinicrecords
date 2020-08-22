@@ -1,6 +1,6 @@
 # HOTR CLINIC APP
 
-This application maps out how the process of patience response flows in the clinic and the software fits into that pattern.
+This Electronic Medical Records(EMR) application maps out how the process of patience response flows in the clinic and the software fits into that pattern.
 
 [Link](http://hotrclinic.herokuapp.com/)
 
@@ -30,3 +30,16 @@ The Admin has access to all the data and can create credentials for all other me
 
 Username: admin@demo.com
 Password: admin@demo.com
+
+
+## To run this locally on your machine
+ 
+ - clone the repo
+
+ - cd into the folder and run `bundle install`
+
+ - run `rails db:create db:migrate db:seed`
+
+ - During the seeding process, the WHO OCD-10 data is loaded into the database so as to allow the correct classification of diseases
+
+ -
